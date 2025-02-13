@@ -1,10 +1,11 @@
 Class {
-	#name : #AParsectTest,
-	#superclass : #TestCase,
-	#category : #'IngSoft2-Tests'
+	#name : 'AParsectTest',
+	#superclass : 'TestCase',
+	#category : 'IngSoft2-Tests',
+	#package : 'IngSoft2-Tests'
 }
 
-{ #category : #running }
+{ #category : 'running' }
 AParsectTest >> test_02_ParsecNotAffectedByConvertToParsec [ 
 
 | aParsec |

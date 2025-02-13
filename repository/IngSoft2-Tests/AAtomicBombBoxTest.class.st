@@ -1,10 +1,11 @@
 Class {
-	#name : #AAtomicBombBoxTest,
-	#superclass : #TestCase,
-	#category : 'IngSoft2-Tests'
+	#name : 'AAtomicBombBoxTest',
+	#superclass : 'TestCase',
+	#category : 'IngSoft2-Tests',
+	#package : 'IngSoft2-Tests'
 }
 
-{ #category : #tests }
+{ #category : 'tests' }
 AAtomicBombBoxTest >> test_02_WhenAShipLandInAAtomicBombBoxThenAllShipsGoToPosition1WithActualFuelAndSameLaps [ 
 
 | aAtomicBombBox aCollectionOfShips aShip anotherShip|

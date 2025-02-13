@@ -1,10 +1,11 @@
 Class {
-	#name : #AShipTest,
-	#superclass : #TestCase,
-	#category : #'IngSoft2-Tests'
+	#name : 'AShipTest',
+	#superclass : 'TestCase',
+	#category : 'IngSoft2-Tests',
+	#package : 'IngSoft2-Tests'
 }
 
-{ #category : #tests }
+{ #category : 'tests' }
 AShipTest >> testShipIsCreatedWithAPosition [
 
 	| aShip |
@@ -12,7 +13,7 @@ AShipTest >> testShipIsCreatedWithAPosition [
 	self assert: (aShip moves: 1) equals: 2
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 AShipTest >> testWhen2LoadedDieOf3And4FacesAreThrownThenThePositionOfTheShipIsUpdatedTo7 [
 
 	| aShip aCollectionOfDice aDie positionsToMove anotherDie |
@@ -27,7 +28,7 @@ AShipTest >> testWhen2LoadedDieOf3And4FacesAreThrownThenThePositionOfTheShipIsUp
 	self assert: aShip getPosition equals: 8
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 AShipTest >> testWhenMoreThanOneLoadedDieAreThrownThenThrowDiceReturnsTheSumOfResults [
 
 	| aShip aCollectionOfDice aDie anotherDie |
@@ -40,7 +41,7 @@ AShipTest >> testWhenMoreThanOneLoadedDieAreThrownThenThrowDiceReturnsTheSumOfRe
 	self assert: (aShip throwDice: aCollectionOfDice) equals: 7
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 AShipTest >> test_01_WhenAShipHasFuelThenGetFuelReturnsIt [
 	| aShip |
 	aShip := Ship createWithMaxFuel: 100.
@@ -49,7 +50,7 @@ AShipTest >> test_01_WhenAShipHasFuelThenGetFuelReturnsIt [
 	self assert: (aShip getFuel) equals: 100
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 AShipTest >> test_02_WhenAShipConsumesFuelThenTheFuelReduces [
 	| aShip |
 	aShip := Ship createWithMaxFuel: 100.
@@ -58,7 +59,7 @@ AShipTest >> test_02_WhenAShipConsumesFuelThenTheFuelReduces [
 	self assert: (aShip getFuel) equals: 50
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 AShipTest >> test_04_WhenAShipRestartsTheFuelThenFuelIsMaxFuel [
 
 	| aShip |
@@ -72,7 +73,7 @@ AShipTest >> test_04_WhenAShipRestartsTheFuelThenFuelIsMaxFuel [
 	self assert: aShip getFuel equals: 100
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 AShipTest >> test_05_WhenAShipHasAnAmountOfLapsThenGetLapsReturnsLaps [
 
 	| aShip |
@@ -81,7 +82,7 @@ AShipTest >> test_05_WhenAShipHasAnAmountOfLapsThenGetLapsReturnsLaps [
 	self assert: aShip getLaps equals: 1
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 AShipTest >> test_11_WhenLapsIsUpdatedAndTotalLapsToDoIs2ThenStateChangesToWinner [
 	| aShip |
 	aShip := Ship createWithMaxFuel: 1000.
@@ -90,14 +91,14 @@ AShipTest >> test_11_WhenLapsIsUpdatedAndTotalLapsToDoIs2ThenStateChangesToWinne
 	self assert: (aShip getState isKindOf: Winner).
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 AShipTest >> test_12_WhenAShipIsCreatedThenNoVictory [
 	| aShip |
 	aShip := Ship createWithMaxFuel: 1000.
 	self deny: aShip victory.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 AShipTest >> test_13_WhenAShipFinishesLapsThenVictory [
 	| aShip |
 	aShip := Ship createWithMaxFuel: 1000.
@@ -106,7 +107,7 @@ AShipTest >> test_13_WhenAShipFinishesLapsThenVictory [
 	self assert: aShip victory.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 AShipTest >> test_14_WhenAShipRunsOutOfFuelThenNoVictory [
 	| aShip |
 	aShip := Ship createWithMaxFuel: 1000.
@@ -114,7 +115,7 @@ AShipTest >> test_14_WhenAShipRunsOutOfFuelThenNoVictory [
 	self deny: aShip victory.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 AShipTest >> test_15_WhenShipRunsOutOfFuelThenTurnsToSkipIs2 [
 	| aShip |
 	aShip := Ship createWithMaxFuel: 1000.
@@ -122,14 +123,14 @@ AShipTest >> test_15_WhenShipRunsOutOfFuelThenTurnsToSkipIs2 [
 	self assert: (aShip getState) getContTurns equals: 3.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 AShipTest >> test_16_WhenAShipIsPlayingStateThenTheShipCanPlay [
 	| aShip |
 	aShip := Ship createWithMaxFuel: 1000.
 	self assert: aShip checkTurn.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 AShipTest >> test_17_WhenAShipRunsOutOfFuelThenCheckTurnReturnsFalse [
 	| aShip |
 	aShip := Ship createWithMaxFuel: 1000.
@@ -137,7 +138,7 @@ AShipTest >> test_17_WhenAShipRunsOutOfFuelThenCheckTurnReturnsFalse [
 	self deny: aShip checkTurn.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 AShipTest >> test_18_WhenAShipChangesItStateToPlayThenStateIsKindOfPlaying [
 	| aShip |
 	aShip := Ship createWithMaxFuel: 1000.
@@ -147,7 +148,7 @@ AShipTest >> test_18_WhenAShipChangesItStateToPlayThenStateIsKindOfPlaying [
 	self assert: (aShip getState isKindOf: Playing).
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 AShipTest >> test_19_WhenAShipDecidesToSkipOneTurnThenStateChangesToCantPlay [
 	| aShip |
 	aShip := Ship createWithMaxFuel: 1000.
@@ -155,7 +156,7 @@ AShipTest >> test_19_WhenAShipDecidesToSkipOneTurnThenStateChangesToCantPlay [
 	self assert: (aShip getState isKindOf: CantPlayANumberOfTurns).
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 AShipTest >> test_20_WhenShipDecidesToSkipATurnThenFuelIsRestoresToMaxValue [
 	| aShip |
 	aShip := Ship createWithMaxFuel: 1000.
@@ -164,7 +165,7 @@ AShipTest >> test_20_WhenShipDecidesToSkipATurnThenFuelIsRestoresToMaxValue [
 	self assert: aShip getFuel equals: 1000 .
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 AShipTest >> test_21_AShipKnowsItsLastDieResult [
 	| aShip aCollectionOfDice aLoadedDie |
 	aShip := Ship createWithMaxFuel: 1000.
@@ -175,7 +176,7 @@ AShipTest >> test_21_AShipKnowsItsLastDieResult [
 	self assert: aShip getLastDieResult equals: 5.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 AShipTest >> test_22_AShipIsCursedThenStateChangesToEffectBoxState [
 
 	| aShip |
@@ -184,7 +185,7 @@ AShipTest >> test_22_AShipIsCursedThenStateChangesToEffectBoxState [
 	self assert: (aShip getState isKindOf: Jail)
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 AShipTest >> test_23_AShipEndsTheCursedTheStateChangesToPlaying [
 
 	| aShip |
@@ -193,7 +194,7 @@ AShipTest >> test_23_AShipEndsTheCursedTheStateChangesToPlaying [
 	self assert: (aShip getState isKindOf: Playing)
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 AShipTest >> test_24_WhenAShipDecreasedItsLapsThenLapsIs0 [
 	| aShip |
 	aShip := Ship createWithMaxFuel: 1000.
@@ -201,7 +202,7 @@ AShipTest >> test_24_WhenAShipDecreasedItsLapsThenLapsIs0 [
 	self assert: aShip getLaps equals: 0.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 AShipTest >> test_25_WhenAShipEntersAWormHoleThenItMovesToDestiny [
 
 	| aShip aWormholeBox anotherWormholeBox aCollectionOfShips |
@@ -218,7 +219,7 @@ AShipTest >> test_25_WhenAShipEntersAWormHoleThenItMovesToDestiny [
 	self assert: aShip getPosition equals: 4.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 AShipTest >> test_26_WhenAShipEntersAWormHoleThenItConsumesFuelToDestiny [
 
 	| aShip aWormholeBox anotherWormholeBox aCollectionOfShips |
@@ -235,7 +236,7 @@ AShipTest >> test_26_WhenAShipEntersAWormHoleThenItConsumesFuelToDestiny [
 	self assert: aShip getFuel equals: 997.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 AShipTest >> test_27_WhenAShipHasMoreLapsThanAnotherShipThenAShipIsGreaterThanAnotherShip [
 
 	| aShip anotherShip |
@@ -245,7 +246,7 @@ AShipTest >> test_27_WhenAShipHasMoreLapsThanAnotherShipThenAShipIsGreaterThanAn
 	self assert: aShip > anotherShip.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 AShipTest >> test_28_WhenAShipHasSameLapsButBiggerPositionThanAnotherShipThenAShipIsGreaterThanAnotherShip [
 
 	| aShip anotherShip |
@@ -255,7 +256,7 @@ AShipTest >> test_28_WhenAShipHasSameLapsButBiggerPositionThanAnotherShipThenASh
 	self assert: aShip > anotherShip.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 AShipTest >> test_29_WhenAShipHasMoreLapsButLessPositionThenAShipIsGreaterThanAnotherShip [
 
 	| aShip anotherShip |
@@ -267,7 +268,7 @@ AShipTest >> test_29_WhenAShipHasMoreLapsButLessPositionThenAShipIsGreaterThanAn
 	self assert: aShip > anotherShip.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 AShipTest >> test_30_WhenAshipHasActiveOverloadCardThenShipIsAffected [
 
 	| aShip anotherShip aCard boxesArray aBoard aCollectionOfDice aLoadedDie anotherLoadedDie aBoardGame shipsPlaying |
@@ -298,7 +299,7 @@ AShipTest >> test_30_WhenAshipHasActiveOverloadCardThenShipIsAffected [
 	self assert: anotherShip getPosition equals: 4.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 AShipTest >> test_31_WhenAShipHasActiveAccelerationCardThenAllShipsAffected [
 
 	| aShip anotherShip aCard boxesArray aBoard aCollectionOfDice aLoadedDie anotherLoadedDie aBoardGame shipsPlaying |
@@ -330,7 +331,7 @@ AShipTest >> test_31_WhenAShipHasActiveAccelerationCardThenAllShipsAffected [
 	self assert: aShip  getPosition equals:9.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 AShipTest >> test_32_WhenAShipRunOutOfFuelAndHasAnAllyThenAllyShareFuel [
 
 	| aShip anotherShip aCard boxesArray aBoard aCollectionOfDice aLoadedDie anotherLoadedDie aBoardGame shipsPlaying |
@@ -362,7 +363,7 @@ AShipTest >> test_32_WhenAShipRunOutOfFuelAndHasAnAllyThenAllyShareFuel [
 
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 AShipTest >> test_33_WhenAshipRunOutOfFuelAndHisAllyToThenBothGoesToPositionOneWithMaxFuelAndWithCantPLayANumberOfTurnsState [
 
 	| aShip anotherShip aCard aCollectionOfShips boxesArray aBoard aCollectionOfDice aLoadedDie anotherLoadedDie aBoardGame |
@@ -398,7 +399,7 @@ aCard:= AllyCard new.
 
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 AShipTest >> test_34_WhenAShipCanAddACardToHisColectionOfCards [
 
 	| aShip aCard aCollectionOfCards |
@@ -411,7 +412,7 @@ AShipTest >> test_34_WhenAShipCanAddACardToHisColectionOfCards [
 	self assert: aShip getCards equals: aCollectionOfCards
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 AShipTest >> test_35_WhenAShipThrowTheMaxDieResultThenShipWinReward [
 
 	| aShip  aCollectionOfDice aLoadedDie aDieResult |
@@ -425,7 +426,7 @@ AShipTest >> test_35_WhenAShipThrowTheMaxDieResultThenShipWinReward [
 	self assert: ((aShip getFuel = 4) or: (aShip getMaxFuel =6)).
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 AShipTest >> test_36_WhenAShipSelectsACardThenTheCardIsSelected [
 
 	| aShip aCard anotherCard |
@@ -438,7 +439,7 @@ AShipTest >> test_36_WhenAShipSelectsACardThenTheCardIsSelected [
 	self assert: (aShip selectCard:  aCard) equals: aCard.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 AShipTest >> test_37_WhenAShipWantsToRemoveACardFromItsHandThenTheCardIsRemoved [
 
 	| aShip aCard anotherCard |
@@ -450,4 +451,35 @@ AShipTest >> test_37_WhenAShipWantsToRemoveACardFromItsHandThenTheCardIsRemoved 
 	aShip addCard: anotherCard.
 	aShip removeCardFromHand: aCard.
 	self assert: (aShip getCards size) equals: 1.
+]
+
+{ #category : 'tests' }
+AShipTest >> test_38_WhenAShipPlaysItsTurnThenTheAmountOfTimesPlayedIsUpdated [
+	
+	| aShip boxesArray aBoard aCollectionOfDice aLoadedDie anotherLoadedDie aBoardGame |
+	boxesArray := OrderedCollection new.
+	boxesArray add: (NoEffectBox  inPlace: 1).
+	boxesArray add: (NoEffectBox inPlace: 2).
+	boxesArray add: (NoEffectBox inPlace: 3).
+	boxesArray add: (NoEffectBox inPlace: 4).
+	aBoard := Board withBoxesArray: boxesArray.
+	aCollectionOfDice := OrderedCollection new.
+	aLoadedDie := LoadedDie of: 3.
+	aCollectionOfDice add: aLoadedDie.
+	aBoardGame := BoardGame
+		              withShip: 3
+		              withBoard: aBoard
+		              WithDice: aCollectionOfDice
+		              andwithNumberOfLaps: 2.
+	aShip := aBoardGame getShipsPlaying at: 1.
+	aBoardGame playTurn. 
+	self assert: (aShip getTurnsPlayed) equals: 1.
+]
+
+{ #category : 'tests' }
+AShipTest >> test_39_WhenAShipIsCreatedTurnsPlayedEqualsCero [
+	
+	| aShip |
+	aShip := Ship createWithMaxFuel: 1000.
+	self assert: (aShip getTurnsPlayed) equals: 0.
 ]

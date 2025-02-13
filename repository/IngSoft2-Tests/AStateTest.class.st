@@ -1,10 +1,11 @@
 Class {
-	#name : #AStateTest,
-	#superclass : #TestCase,
-	#category : #'IngSoft2-Tests'
+	#name : 'AStateTest',
+	#superclass : 'TestCase',
+	#category : 'IngSoft2-Tests',
+	#package : 'IngSoft2-Tests'
 }
 
-{ #category : #tests }
+{ #category : 'tests' }
 AStateTest >> testACantPlayStateCheckPlayThenReturnsFalse_08 [
 
 	| aState |
@@ -12,7 +13,7 @@ AStateTest >> testACantPlayStateCheckPlayThenReturnsFalse_08 [
 	self deny: aState checkPlay.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 AStateTest >> testAPlayingStateChecksPlay_06 [
 
 	| aState |
@@ -20,7 +21,7 @@ AStateTest >> testAPlayingStateChecksPlay_06 [
 	self deny: aState checkPlay.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 AStateTest >> testAStateChecksPlay_05 [
 
 	| aState |
@@ -28,7 +29,7 @@ AStateTest >> testAStateChecksPlay_05 [
 	self deny: aState checkPlay.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 AStateTest >> testAWinnerStateChecksPlayThenReturnsTrue_07 [
 
 	| aState |
@@ -36,7 +37,7 @@ AStateTest >> testAWinnerStateChecksPlayThenReturnsTrue_07 [
 	self assert: aState checkPlay.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 AStateTest >> testWhenAShipIsCreatedThenTheStateHasToBePlaying_02 [
 
 	| aShip |
@@ -44,7 +45,7 @@ AStateTest >> testWhenAShipIsCreatedThenTheStateHasToBePlaying_02 [
 	self assert: (aShip getState isKindOf: Playing)
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 AStateTest >> testWhenShipConsumesAlItsFuelThenStateChangesToCantPlay_03 [
 
 	| aShip |
@@ -53,7 +54,7 @@ AStateTest >> testWhenShipConsumesAlItsFuelThenStateChangesToCantPlay_03 [
 	self assert: (aShip getState isKindOf: CantPlayANumberOfTurns)
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 AStateTest >> testWhenShipUpdatesItsStateToWinnerThenStateIsWinner_04 [
 
 	| aShip |

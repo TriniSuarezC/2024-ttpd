@@ -1,10 +1,11 @@
 Class {
-	#name : #AnAllyCardTest,
-	#superclass : #TestCase,
-	#category : #'IngSoft2-Tests'
+	#name : 'AnAllyCardTest',
+	#superclass : 'TestCase',
+	#category : 'IngSoft2-Tests',
+	#package : 'IngSoft2-Tests'
 }
 
-{ #category : #running }
+{ #category : 'running' }
 AnAllyCardTest >> test_01_WhenAnAllyCardIsAplyThenBothShipsGetsAnActiveCard [ 
 
 | aCard aShip anotherShip aCollectionOfShips  boxesArray aBoard aCollectionOfDice aLoadedDie anotherLoadedDie aBoardGame |
@@ -37,7 +38,7 @@ self assert:((aShip getActiveCards at:1) isKindOf:AllyCard).
 
 ]
 
-{ #category : #running }
+{ #category : 'running' }
 AnAllyCardTest >> test_02_WhenAnAllyCardIsAplyThenBothKnowTheirAlly [
 
 | aCard aShip anotherShip aCollectionOfShips  boxesArray aBoard aCollectionOfDice aLoadedDie anotherLoadedDie aBoardGame shipsPlaying |
@@ -69,7 +70,7 @@ self assert:((aShip getActiveCards at:1) getAlly = anotherShip).
 
 ]
 
-{ #category : #running }
+{ #category : 'running' }
 AnAllyCardTest >> test_03_AnAllyCardMessageIsBeingRefactor [ 
 
 	| anAllyCard aShip anotherShip aBoardGame boxesArray aBoard aCollectionOfDice aLoadedDie anotherLoadedDie shipsPlaying |

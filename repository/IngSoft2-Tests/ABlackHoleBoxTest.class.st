@@ -1,10 +1,11 @@
 Class {
-	#name : #ABlackHoleBoxTest,
-	#superclass : #TestCase,
-	#category : 'IngSoft2-Tests'
+	#name : 'ABlackHoleBoxTest',
+	#superclass : 'TestCase',
+	#category : 'IngSoft2-Tests',
+	#package : 'IngSoft2-Tests'
 }
 
-{ #category : #tests }
+{ #category : 'tests' }
 ABlackHoleBoxTest >> testWhenAShipLandsInABlackHoleThenPositionAndFuelAreUpdated_03 [
 
 	| aBlackHoleBox aCollectionOfShips aShip anotherShip |

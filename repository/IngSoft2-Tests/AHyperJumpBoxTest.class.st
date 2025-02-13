@@ -1,10 +1,11 @@
 Class {
-	#name : #AHyperJumpBoxTest,
-	#superclass : #TestCase,
-	#category : #'IngSoft2-Tests'
+	#name : 'AHyperJumpBoxTest',
+	#superclass : 'TestCase',
+	#category : 'IngSoft2-Tests',
+	#package : 'IngSoft2-Tests'
 }
 
-{ #category : #tests }
+{ #category : 'tests' }
 AHyperJumpBoxTest >> testAHyperJumbBoxHasAParsec_BoxProportion_02 [
 
 	| aHyperJump aParsecsList |
@@ -17,7 +18,7 @@ AHyperJumpBoxTest >> testAHyperJumbBoxHasAParsec_BoxProportion_02 [
 	self assert: aHyperJump parsecBoxProportion equals: 10
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 AHyperJumpBoxTest >> testAHyperJumpBoxHasAParsecList_07 [
 
 	| aHyperJump aParsecsList expectedList |
@@ -35,7 +36,7 @@ AHyperJumpBoxTest >> testAHyperJumpBoxHasAParsecList_07 [
 	self assert: aHyperJump getParsecList equals: expectedList
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 AHyperJumpBoxTest >> testWhenAHyperJumpBoxIsCreatedThenAlInformacionAboutParsecsIsToo_08 [
 
 	| aHyperJump aParsecsList |
@@ -48,7 +49,7 @@ AHyperJumpBoxTest >> testWhenAHyperJumpBoxIsCreatedThenAlInformacionAboutParsecs
 	self assert: aHyperJump getParsecLenght > 0
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 AHyperJumpBoxTest >> testWhenAShipLandsInAHyperJumpBoxThenTheFuelIsUpdated_04 [
 
 	| aHyperJump aParsecsList aCollectionOfShips aShip aParsec anotherParsec oneMoreParsec |
@@ -70,7 +71,7 @@ AHyperJumpBoxTest >> testWhenAShipLandsInAHyperJumpBoxThenTheFuelIsUpdated_04 [
 	self assert: aShip getFuel equals: 928.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 AHyperJumpBoxTest >> testWhenAShipLandsInAHyperJumpBoxThenThePositionIsUpdated_03 [
 
 	| aHyperJump aParsecsList aCollectionOfShips aShip aParsec anotherParsec oneMoreParsec |
@@ -95,7 +96,7 @@ AHyperJumpBoxTest >> testWhenAShipLandsInAHyperJumpBoxThenThePositionIsUpdated_0
 	self assert: aShip getPosition equals: 73
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 AHyperJumpBoxTest >> testWhenNumberOfParsecsIsBiggerThanBoardLengthThenFuelIsCosumedTheRoundedPositions_06 [
 
 	| aHyperJump aParsecsList aCollectionOfShips aShip aParsec anotherParsec oneMoreParsec |
@@ -120,7 +121,7 @@ AHyperJumpBoxTest >> testWhenNumberOfParsecsIsBiggerThanBoardLengthThenFuelIsCos
 	self assert: aShip getFuel equals: 997
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 AHyperJumpBoxTest >> testWhenNumberOfParsecsIsBiggerThanBoardLengthThenPositionsToMoveIsRounded_05 [
 
 	| aHyperJump aParsecsList aCollectionOfShips aShip aParsec anotherParsec oneMoreParsec |

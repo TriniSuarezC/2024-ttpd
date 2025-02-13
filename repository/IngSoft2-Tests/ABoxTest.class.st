@@ -1,15 +1,16 @@
 Class {
-	#name : #ABoxTest,
-	#superclass : #TestCase,
-	#category : #'IngSoft2-Tests'
+	#name : 'ABoxTest',
+	#superclass : 'TestCase',
+	#category : 'IngSoft2-Tests',
+	#package : 'IngSoft2-Tests'
 }
 
-{ #category : #asserting }
+{ #category : 'asserting' }
 ABoxTest >> should: aBlockError raise: aClassError withMessage: aMessage [ 
 		self should: aBlockError raise: aClassError withExceptionDo: [ :error | self assert: error messageText equals: aMessage ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ABoxTest >> testWhenTheBoxIsCreatedInPlaceLessThan1ThenBoxInvalid_04 [
 
 	self

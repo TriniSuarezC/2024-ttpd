@@ -1,10 +1,11 @@
 Class {
-	#name : #AWormHoleBoxTest,
-	#superclass : #TestCase,
-	#category : #'IngSoft2-Tests'
+	#name : 'AWormHoleBoxTest',
+	#superclass : 'TestCase',
+	#category : 'IngSoft2-Tests',
+	#package : 'IngSoft2-Tests'
 }
 
-{ #category : #tests }
+{ #category : 'tests' }
 AWormHoleBoxTest >> testWhenAWormHoleKnowsItsDestiny_05 [
 
 	| aWormholeBox anotherWormholeBox |

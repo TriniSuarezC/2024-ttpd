@@ -1,10 +1,11 @@
 Class {
-	#name : #AMoonWalkBoxTest,
-	#superclass : #TestCase,
-	#category : 'IngSoft2-Tests'
+	#name : 'AMoonWalkBoxTest',
+	#superclass : 'TestCase',
+	#category : 'IngSoft2-Tests',
+	#package : 'IngSoft2-Tests'
 }
 
-{ #category : #tests }
+{ #category : 'tests' }
 AMoonWalkBoxTest >> testWhenAMoonWalkBoxIsCreatedThenANumberOfBoxesToMoveCanBeAssigned_02 [
 
 	| aMoonWalkBox|
@@ -13,7 +14,7 @@ AMoonWalkBoxTest >> testWhenAMoonWalkBoxIsCreatedThenANumberOfBoxesToMoveCanBeAs
 	self assert: aMoonWalkBox getnumberOfBoxesToMove equals: 5.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 AMoonWalkBoxTest >> testWhenAMoonWalkBoxIsCreatedThenANumberOfPositionsToMoveIsAssignedRandomly_05 [
 
 	| aMoonWalkBox |
@@ -41,7 +42,7 @@ AMoonWalkBoxTest >> testWhenAMoonWalkBoxIsCreatedThenANumberOfPositionsToMoveIsA
 
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 AMoonWalkBoxTest >> testWhenAShipLandsInAMoonWalkBoxThenItsPositionDoesNotChangeBusOtherShipsPositionDoesChange_03 [
 
 	| aMoonWalkBox aShip anotherShip aCollectionOfShips |
@@ -83,7 +84,7 @@ AMoonWalkBoxTest >> testWhenAShipLandsInAMoonWalkBoxThenItsPositionDoesNotChange
 
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 AMoonWalkBoxTest >> testWhenAShipLandsInAMoonWalkBoxThenTheOtherShipsMovesAndRunOutOfFuel_04 [
 
 	| aMoonWalkBox aShip anotherShip aCollectionOfShips |

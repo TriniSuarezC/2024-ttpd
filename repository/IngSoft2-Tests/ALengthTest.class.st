@@ -1,10 +1,11 @@
 Class {
-	#name : #ALengthTest,
-	#superclass : #TestCase,
-	#category : #'IngSoft2-Tests'
+	#name : 'ALengthTest',
+	#superclass : 'TestCase',
+	#category : 'IngSoft2-Tests',
+	#package : 'IngSoft2-Tests'
 }
 
-{ #category : #tests }
+{ #category : 'tests' }
 ALengthTest >> test_01_WhenAParsecHasMoreValueThanTheOtherThenThisParsecIsBigger [
 
 | aParsec anotherParsec |
@@ -13,7 +14,7 @@ anotherParsec := Parsec withValue: 3.
 self assert: aParsec > anotherParsec.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ALengthTest >> test_02_WhenAParsecHasLessValueButTheConvertionIsBiggerThenTheParsecIsBetterThanTheLightYear [
 
 | aParsec aLightYear |
@@ -22,7 +23,7 @@ aLightYear := LightYear withValue: 10.
 self assert: aParsec > aLightYear.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ALengthTest >> test_03_ALenghtObjectCanConvertToParsec [
 
 | aLenght |

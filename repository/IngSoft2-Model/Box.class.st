@@ -1,46 +1,47 @@
 Class {
-	#name : #Box,
-	#superclass : #Object,
+	#name : 'Box',
+	#superclass : 'Object',
 	#instVars : [
 		'place'
 	],
-	#category : #'IngSoft2-Model'
+	#category : 'IngSoft2-Model',
+	#package : 'IngSoft2-Model'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 Box class >> inPlace: aPlace [ 
 	aPlace < 1 ifTrue: [ Error signal: 'The position of the box must be greater or equal to 1' ].
 	^self new initializeInPlace: aPlace.
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 Box >> addParsecsList: aParsecList withBoardLenght: aBoardLength andParsecLength: aParsecLength [ 
 	Error signal: 'This is not an HyperJumpBox.'
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 Box >> effectShips: aCollectionOfShips playing: aShip [ 
 	^true
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 Box >> getPosition [
 	^place.
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 Box >> initializeInPlace: aPlace [
 	place := aPlace.
 	
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 Box >> numberOfBoxesToMove: aNumberOfBoxesToMove [
 
 	Error signal: 'This is not an MoonWalkBox.'
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 Box >> setNumber: aDieResult [ 
 	Error signal: 'This is not an HyperGravityBox.'
 ]
