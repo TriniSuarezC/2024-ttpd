@@ -516,3 +516,83 @@ AShipTest >> test_41_WhenAShipHasPlayedMoreThan2TurnsThenPlayTimeMachineIsTrue [
 	aBoardGame playTurn. 
 	self assert: (aShip canPlayTimeMachine) equals: true.
 ]
+
+{ #category : 'tests' }
+AShipTest >> test_42_WhenAShipIsCreatedThenReturningFuelEqualsToMaxFuel [
+	
+	| aShip |
+	aShip := Ship createWithMaxFuel: 1000.
+	self assert: (aShip getReturningFuel) equals: (aShip getMaxFuel).
+]
+
+{ #category : 'tests' }
+AShipTest >> test_43_WhenAShipPlaysOneTurnThenReturningFuelEqualsToMaxFuel [
+	
+	| aShip boxesArray aBoard aCollectionOfDice aLoadedDie aBoardGame |
+	boxesArray := OrderedCollection new.
+	boxesArray add: (NoEffectBox  inPlace: 1).
+	boxesArray add: (NoEffectBox inPlace: 2).
+	boxesArray add: (NoEffectBox inPlace: 3).
+	boxesArray add: (NoEffectBox inPlace: 4).
+	aBoard := Board withBoxesArray: boxesArray.
+	aCollectionOfDice := OrderedCollection new.
+	aLoadedDie := LoadedDie of: 4.
+	aCollectionOfDice add: aLoadedDie.
+	aBoardGame := BoardGame
+		              withShip: 1
+		              withBoard: aBoard
+		              WithDice: aCollectionOfDice
+		              andwithNumberOfLaps: 2.
+	aShip := aBoardGame getShipsPlaying at: 1.
+	aBoardGame playTurn. 
+	self assert: (aShip getReturningFuel) equals: 10.
+]
+
+{ #category : 'tests' }
+AShipTest >> test_44_WhenAShipPlaysTwoTurnsThenReturningFuelEqualsToMaxFuel [
+	
+	| aShip boxesArray aBoard aCollectionOfDice aLoadedDie aBoardGame |
+	boxesArray := OrderedCollection new.
+	boxesArray add: (NoEffectBox  inPlace: 1).
+	boxesArray add: (NoEffectBox inPlace: 2).
+	boxesArray add: (NoEffectBox inPlace: 3).
+	boxesArray add: (NoEffectBox inPlace: 4).
+	aBoard := Board withBoxesArray: boxesArray.
+	aCollectionOfDice := OrderedCollection new.
+	aLoadedDie := LoadedDie of: 4.
+	aCollectionOfDice add: aLoadedDie.
+	aBoardGame := BoardGame
+		              withShip: 1
+		              withBoard: aBoard
+		              WithDice: aCollectionOfDice
+		              andwithNumberOfLaps: 2.
+	aShip := aBoardGame getShipsPlaying at: 1.
+	aBoardGame playTurn. 
+	aBoardGame playTurn. 	
+	self assert: (aShip getReturningFuel) equals: 10.
+]
+
+{ #category : 'tests' }
+AShipTest >> test_45_WhenAShipPlaysATurnThreeTimesThenReturningFuelEqualsToFuelAfterFirstTurn [
+	
+	| aShip boxesArray aBoard aCollectionOfDice aLoadedDie aBoardGame |
+	boxesArray := OrderedCollection new.
+	boxesArray add: (NoEffectBox  inPlace: 1).
+	boxesArray add: (NoEffectBox inPlace: 2).
+	boxesArray add: (NoEffectBox inPlace: 3).
+	boxesArray add: (NoEffectBox inPlace: 4).
+	aBoard := Board withBoxesArray: boxesArray.
+	aCollectionOfDice := OrderedCollection new.
+	aLoadedDie := LoadedDie of: 3.
+	aCollectionOfDice add: aLoadedDie.
+	aBoardGame := BoardGame
+		              withShip: 1
+		              withBoard: aBoard
+		              WithDice: aCollectionOfDice
+		              andwithNumberOfLaps: 2.
+	aShip := aBoardGame getShipsPlaying at: 1.
+	aBoardGame playTurn. 
+	aBoardGame playTurn. 
+	aBoardGame playTurn. 
+	self assert: (aShip getReturningFuel) equals: 5.
+]
