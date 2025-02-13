@@ -44,6 +44,12 @@ Ship >> addCard: aCard [
 	aCollectionOfCards add: aCard.
 ]
 
+{ #category : 'testing' }
+Ship >> canPlayTimeMachine [
+	turnsPlayed < 2 ifTrue: [ ^false ].
+	^true. 
+]
+
 { #category : 'as yet unclassified' }
 Ship >> changeStateToPlay [
 	state := Playing new.

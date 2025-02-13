@@ -483,3 +483,36 @@ AShipTest >> test_39_WhenAShipIsCreatedTurnsPlayedEqualsCero [
 	aShip := Ship createWithMaxFuel: 1000.
 	self assert: (aShip getTurnsPlayed) equals: 0.
 ]
+
+{ #category : 'tests' }
+AShipTest >> test_40_WhenAShipHasPlayedLessThan2TurnsThenPlayTimeMachineIsFalse [
+	
+	| aShip |
+	aShip := Ship createWithMaxFuel: 1000.
+	self assert: (aShip canPlayTimeMachine) equals: false.
+]
+
+{ #category : 'tests' }
+AShipTest >> test_41_WhenAShipHasPlayedMoreThan2TurnsThenPlayTimeMachineIsTrue [
+	
+	| aShip boxesArray aBoard aCollectionOfDice aLoadedDie aBoardGame |
+	boxesArray := OrderedCollection new.
+	boxesArray add: (NoEffectBox  inPlace: 1).
+	boxesArray add: (NoEffectBox inPlace: 2).
+	boxesArray add: (NoEffectBox inPlace: 3).
+	boxesArray add: (NoEffectBox inPlace: 4).
+	aBoard := Board withBoxesArray: boxesArray.
+	aCollectionOfDice := OrderedCollection new.
+	aLoadedDie := LoadedDie of: 3.
+	aCollectionOfDice add: aLoadedDie.
+	aBoardGame := BoardGame
+		              withShip: 1
+		              withBoard: aBoard
+		              WithDice: aCollectionOfDice
+		              andwithNumberOfLaps: 2.
+	aShip := aBoardGame getShipsPlaying at: 1.
+	aBoardGame playTurn. 
+	aBoardGame playTurn. 
+	aBoardGame playTurn. 
+	self assert: (aShip canPlayTimeMachine) equals: true.
+]
