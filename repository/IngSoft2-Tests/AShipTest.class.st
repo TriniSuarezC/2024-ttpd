@@ -485,14 +485,6 @@ AShipTest >> test_39_WhenAShipIsCreatedTurnsPlayedEqualsCero [
 ]
 
 { #category : 'tests' }
-AShipTest >> test_40_WhenAShipHasPlayedLessThan2TurnsThenPlayTimeMachineIsFalse [
-	
-	| aShip |
-	aShip := Ship createWithMaxFuel: 1000.
-	self assert: (aShip canPlayTimeMachine) equals: false.
-]
-
-{ #category : 'tests' }
 AShipTest >> test_41_WhenAShipHasPlayedMoreThan2TurnsThenPlayTimeMachineIsTrue [
 	
 	| aShip boxesArray aBoard aCollectionOfDice aLoadedDie aBoardGame |

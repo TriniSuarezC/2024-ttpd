@@ -52,7 +52,7 @@ Ship >> addFuelHistory [
 
 { #category : 'testing' }
 Ship >> canPlayTimeMachine [
-	turnsPlayed <= 2 ifTrue: [ ^false ].
+	turnsPlayed <= 2 ifTrue: [ self error: 'You cant play a time machine card when less than 2 turns have passed.' ].
 	^true. 
 ]
 
