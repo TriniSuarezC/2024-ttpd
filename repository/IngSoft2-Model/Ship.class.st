@@ -11,7 +11,6 @@ Class {
 		'aCollectionOfCards',
 		'aCollectionOfActiveCards',
 		'turnsPlayed',
-		'returningFuel',
 		'fuelHistory'
 	],
 	#category : 'IngSoft2-Model',
@@ -99,7 +98,6 @@ Ship >> consumeFuel: amount [
 				ifTrue: [ self consumeFuelFromAlly: fuel - amount ]
 				ifFalse: [ self runOutOfFuel ] ].
 
-	self canPlayTimeMachine ifTrue: [ returningFuel := fuel ]
 ]
 
 { #category : 'as yet unclassified' }
@@ -166,11 +164,6 @@ Ship >> getPosition [
 ]
 
 { #category : 'as yet unclassified' }
-Ship >> getReturningFuel [
-	^returningFuel.
-]
-
-{ #category : 'as yet unclassified' }
 Ship >> getState [
 	^state.
 ]
@@ -191,7 +184,6 @@ Ship >> intitializeWithMaxFuel: amountMaxFuel [
 	position:= 1.
 	fuel:= amountMaxFuel.
 	maxFuel:= amountMaxFuel.
-	returningFuel := amountMaxFuel.
 	fuelHistory := OrderedCollection new.
 	fuelHistory add: amountMaxFuel.
 	laps:= 1.
