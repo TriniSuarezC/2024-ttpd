@@ -570,3 +570,34 @@ AShipTest >> test_50_WhenAShipPlaysTwoTurnsTheFuelHistoryIsUpdated [
 	self assert: ((aShip getFuelHistory) at: 2) equals: checkFuel1.
 	self assert: ((aShip getFuelHistory) at: 3) equals: checkFuel2.
 ]
+
+{ #category : 'tests' }
+AShipTest >> test_51_WhenAShipGetsAnAllyThenTheAllyCanBeKnown [
+
+	| aShip anotherShip aCard boxesArray aBoard aCollectionOfDice aLoadedDie anotherLoadedDie aBoardGame shipsPlaying |
+	boxesArray := OrderedCollection new.
+	boxesArray add: (NoEffectBox  inPlace: 1).
+	boxesArray add: (NoEffectBox inPlace: 2).
+	boxesArray add: (NoEffectBox inPlace: 3).
+	boxesArray add: (NoEffectBox inPlace: 4).
+	aBoard := Board withBoxesArray: boxesArray.
+	aCollectionOfDice := OrderedCollection new.
+	aLoadedDie := LoadedDie of: 50.
+	anotherLoadedDie := LoadedDie of: 40.
+	aCollectionOfDice add: aLoadedDie.
+	aCollectionOfDice add: anotherLoadedDie.
+	aBoardGame := BoardGame
+		              withShip: 3
+		              withBoard: aBoard
+		              WithDice: aCollectionOfDice
+		              andwithNumberOfLaps: 2.
+	shipsPlaying := aBoardGame getShipsPlaying.
+	aShip := shipsPlaying at: 1.
+	anotherShip := shipsPlaying at: 2. 
+	aCard:= AllyCard new.
+	aCard affectTo: anotherShip from: aShip  playing: aBoardGame.
+	self assert: aShip getAlly equals: anotherShip.
+	self assert: anotherShip getAlly equals: aShip.
+
+
+]

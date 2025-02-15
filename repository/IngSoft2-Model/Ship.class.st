@@ -64,7 +64,7 @@ Ship >> changeStateToPlay [
 { #category : 'as yet unclassified' }
 Ship >> checkAlly [
 	(aCollectionOfActiveCards isEmpty) ifTrue: [^false ].
-	aCollectionOfActiveCards do:[:aCard| ((aCard powerMove) = 0) ifTrue: [^true ]]
+	aCollectionOfActiveCards do:[:aCard| ((aCard powerMove) = 0) ifTrue:  [^true]]
 ]
 
 { #category : 'as yet unclassified' }
@@ -126,6 +126,12 @@ Ship >> endCursed [
 { #category : 'as yet unclassified' }
 Ship >> getActiveCards [
 	^aCollectionOfActiveCards 
+]
+
+{ #category : 'as yet unclassified' }
+Ship >> getAlly [
+	(aCollectionOfActiveCards isEmpty) ifTrue: [^false ].
+	aCollectionOfActiveCards do:[:aCard| ((aCard powerMove) = 0) ifTrue:  [^(aCard getAlly)]]
 ]
 
 { #category : 'as yet unclassified' }
