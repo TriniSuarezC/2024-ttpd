@@ -573,9 +573,17 @@ AShipTest >> test_44_WhenAShipPlaysTwoTurnsThenReturningFuelEqualsToMaxFuel [
 ]
 
 { #category : 'tests' }
-AShipTest >> test_45_WhenAShipPlaysATurnThreeTimesThenReturningFuelEqualsToFuelAfterFirstTurn [
+AShipTest >> test_47_WhenAShipIsCreatedSoIsItsFuelHistoryAsACollection [
 	
-	| aShip boxesArray aBoard aCollectionOfDice aLoadedDie aBoardGame |
+	| aShip|
+	aShip := Ship createWithMaxFuel: 1000.
+	self assert: ((aShip getFuelHistory) isKindOf: OrderedCollection).
+]
+
+{ #category : 'tests' }
+AShipTest >> test_49_WhenAShipPlaysATurnTheFuelHistoryIsUpdated [
+	
+	| aShip boxesArray aBoard aCollectionOfDice aLoadedDie aBoardGame checkFuel |
 	boxesArray := OrderedCollection new.
 	boxesArray add: (NoEffectBox  inPlace: 1).
 	boxesArray add: (NoEffectBox inPlace: 2).
@@ -592,7 +600,7 @@ AShipTest >> test_45_WhenAShipPlaysATurnThreeTimesThenReturningFuelEqualsToFuelA
 		              andwithNumberOfLaps: 2.
 	aShip := aBoardGame getShipsPlaying at: 1.
 	aBoardGame playTurn. 
-	aBoardGame playTurn. 
-	aBoardGame playTurn. 
-	self assert: (aShip getReturningFuel) equals: 5.
+	checkFuel := aShip getFuel.
+	self assert: ((aShip getFuelHistory) at: 1) equals: 8.
+	self assert: ((aShip getFuelHistory) at: 2) equals: checkFuel.
 ]

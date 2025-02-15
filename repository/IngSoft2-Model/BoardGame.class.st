@@ -144,7 +144,7 @@ BoardGame >> playTurn [
 			playerTurn: playerTurn
 			withDiceResult: dieResult
 			andLaps: laps ].
-
+	(aCollectionOfShips at: playerTurn) addFuelHistory.
 	(aCollectionOfShips at: playerTurn) victory ifFalse: [
 		playerTurn := self changeTurn: playerTurn ]
 ]
