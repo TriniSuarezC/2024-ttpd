@@ -1,10 +1,11 @@
 Class {
-	#name : #InstantCard,
-	#superclass : #Card,
-	#category : #'IngSoft2-Model'
+	#name : 'InstantCard',
+	#superclass : 'Card',
+	#category : 'IngSoft2-Model',
+	#package : 'IngSoft2-Model'
 }
 
-{ #category : #testing }
+{ #category : 'testing' }
 InstantCard >> isInstant [ 
 	^true
 ]

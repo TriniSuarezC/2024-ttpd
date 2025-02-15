@@ -1,10 +1,11 @@
 Class {
-	#name : #ACancellationCardTest,
-	#superclass : #TestCase,
-	#category : #'IngSoft2-Tests'
+	#name : 'ACancellationCardTest',
+	#superclass : 'TestCase',
+	#category : 'IngSoft2-Tests',
+	#package : 'IngSoft2-Tests'
 }
 
-{ #category : #tests }
+{ #category : 'tests' }
 ACancellationCardTest >> test_01_WhenACancellationCardIsApliedThenACardIsRemovedFromACollectionOfActiveCardsInGameAndShips [
 
 	| aCancellationCard aCard aCollectionOfActiveCards anotherCard aCollectionOfShips aShip anotherShip |
@@ -29,7 +30,7 @@ ACancellationCardTest >> test_01_WhenACancellationCardIsApliedThenACardIsRemoved
 	self assert: anotherShip getActiveCards size equals: 1.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ACancellationCardTest >> test_02_ACancelationCardMessageIsBeingRefactor [ 
 
 	| aCancellationCard aShip anotherShip aBoardGame boxesArray aBoard aCollectionOfDice aLoadedDie anotherLoadedDie shipsPlaying |

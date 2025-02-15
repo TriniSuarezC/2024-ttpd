@@ -1,6 +1,6 @@
 Class {
-	#name : #Lenght,
-	#superclass : #Object,
+	#name : 'Lenght',
+	#superclass : 'Object',
 	#instVars : [
 		'lenght',
 		'value'
@@ -8,25 +8,26 @@ Class {
 	#classInstVars : [
 		'value'
 	],
-	#category : #'IngSoft2-Model'
+	#category : 'IngSoft2-Model',
+	#package : 'IngSoft2-Model'
 }
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 Lenght class >> withValue: aValue [ 
 	^self new initilizeWithValue: aValue.
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 Lenght >> > aParsec [ 
 	^self convertToParsec > aParsec convertToParsec.
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 Lenght >> convertToParsec [
 	^value
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 Lenght >> initilizeWithValue: aValue [
 	
 	value := aValue.

@@ -1,10 +1,11 @@
 Class {
-	#name : #CancellationCard,
-	#superclass : #InstantCard,
-	#category : #'IngSoft2-Model'
+	#name : 'CancellationCard',
+	#superclass : 'InstantCard',
+	#category : 'IngSoft2-Model',
+	#package : 'IngSoft2-Model'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 CancellationCard >> affectTo: aCard from: aShip playing: aBoardGame [ 
 	| shipsPlaying |
 	shipsPlaying := aBoardGame getShipsPlaying.
@@ -13,7 +14,7 @@ CancellationCard >> affectTo: aCard from: aShip playing: aBoardGame [
 	
 ]
 
-{ #category : #removing }
+{ #category : 'removing' }
 CancellationCard >> removeCard: aCard from: activeCardsInGame toShips: collectionOfShips [
 
 	activeCardsInGame remove: aCard.

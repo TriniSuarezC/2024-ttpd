@@ -1,10 +1,11 @@
 Class {
-	#name : #ARepeatCardTest,
-	#superclass : #TestCase,
-	#category : #'IngSoft2-Tests'
+	#name : 'ARepeatCardTest',
+	#superclass : 'TestCase',
+	#category : 'IngSoft2-Tests',
+	#package : 'IngSoft2-Tests'
 }
 
-{ #category : #tests }
+{ #category : 'tests' }
 ARepeatCardTest >> test_01_WhenARepeatCardAppliesIsPlayedThenABoxEffectsOnAShip [
 
 	| aCard aBox aShip ships |
@@ -18,7 +19,7 @@ ARepeatCardTest >> test_01_WhenARepeatCardAppliesIsPlayedThenABoxEffectsOnAShip 
 	self assert: aShip getPosition equals: 2
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ARepeatCardTest >> test_02_ARepeatCardMessageIsBeingRefactor [
 
 	| aRepeatCard aShip anotherShip aBoardGame boxesArray aBoard aCollectionOfDice aLoadedDie anotherLoadedDie shipsPlaying |

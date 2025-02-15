@@ -1,15 +1,16 @@
 Class {
-	#name : #APermanentCardTest,
-	#superclass : #TestCase,
-	#category : #'IngSoft2-Tests'
+	#name : 'APermanentCardTest',
+	#superclass : 'TestCase',
+	#category : 'IngSoft2-Tests',
+	#package : 'IngSoft2-Tests'
 }
 
-{ #category : #asserting }
+{ #category : 'asserting' }
 APermanentCardTest >> should: anErrorBlock raise: anErrorClass withMessage: aMessage [ 
 	self should: anErrorBlock raise: anErrorClass withExceptionDo: [ :error | self assert: error messageText equals: aMessage ] 
 ]
 
-{ #category : #running }
+{ #category : 'running' }
 APermanentCardTest >> test_03_APermamentCardHasPowerMoveThenItReturnsZero [
 
 	| aCard |
@@ -17,7 +18,7 @@ APermanentCardTest >> test_03_APermamentCardHasPowerMoveThenItReturnsZero [
 	self assert: aCard powerMove equals: 0
 ]
 
-{ #category : #running }
+{ #category : 'running' }
 APermanentCardTest >> test_05_WhenAPermanentCardIsAskedIfIsPermanentThenTheAnswerIsTrue [
 
 	| aCard |
@@ -25,7 +26,7 @@ APermanentCardTest >> test_05_WhenAPermanentCardIsAskedIfIsPermanentThenTheAnswe
 	self assert: aCard isPermanent.
 ]
 
-{ #category : #running }
+{ #category : 'running' }
 APermanentCardTest >> test_06_WhenAPermanentCardIsAskedIfIsInstatThenTheAnswerIsFalse [
 
 	| aCard |

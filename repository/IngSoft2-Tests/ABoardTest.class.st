@@ -1,15 +1,16 @@
 Class {
-	#name : #ABoardTest,
-	#superclass : #TestCase,
-	#category : #'IngSoft2-Tests'
+	#name : 'ABoardTest',
+	#superclass : 'TestCase',
+	#category : 'IngSoft2-Tests',
+	#package : 'IngSoft2-Tests'
 }
 
-{ #category : #asserting }
+{ #category : 'asserting' }
 ABoardTest >> should: anErrorBlock raise: anErrorClass withMessage: aMessage [ 
 	self should: anErrorBlock raise: anErrorClass withExceptionDo: [ :error | self assert: error messageText equals: aMessage ] 
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ABoardTest >> testWhenABoardIsCreatedThenFirstPositionIsAlwaysANoEffectoBox_12 [
 
 	| aBoard boxDistributions anEffectManager boxes |
@@ -26,7 +27,7 @@ ABoardTest >> testWhenABoardIsCreatedThenFirstPositionIsAlwaysANoEffectoBox_12 [
 	self assert: ((aBoard boxes at: 1) isKindOf: NoEffectBox)
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ABoardTest >> testWhenABoardIsCreatedWithLessThan1BoxThenBoardInvalid [
 
 	| boxesArray |
@@ -38,7 +39,7 @@ ABoardTest >> testWhenABoardIsCreatedWithLessThan1BoxThenBoardInvalid [
 		withMessage: 'A Board must have at least 3 box to be created'
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ABoardTest >> testWhenAShipLandsInABlackHoleBoxThenItsPositionIsUpdated_17 [
 
 	| aBoard aShip anotherShip aCollectionOfShips boxesArray |
@@ -63,7 +64,7 @@ ABoardTest >> testWhenAShipLandsInABlackHoleBoxThenItsPositionIsUpdated_17 [
 	self assert: aShip getLaps equals: 1
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ABoardTest >> testWhenAShipPassToNextLapThenUpdateLapAndPosition_16 [
 
 	| aBoard aShip anotherShip aCollectionOfShips boxesArray |
@@ -87,7 +88,7 @@ ABoardTest >> testWhenAShipPassToNextLapThenUpdateLapAndPosition_16 [
 
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ABoardTest >> test_22_ABoardKnowsTheLastBoxThatWasPlayed [
 
 	| aBoard aShip anotherShip aCollectionOfShips boxesArray |

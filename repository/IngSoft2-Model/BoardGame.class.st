@@ -1,6 +1,6 @@
 Class {
-	#name : #BoardGame,
-	#superclass : #Object,
+	#name : 'BoardGame',
+	#superclass : 'Object',
 	#instVars : [
 		'aCollectionOfShips',
 		'board',
@@ -11,10 +11,11 @@ Class {
 		'maxDieResult',
 		'lastCard'
 	],
-	#category : #'IngSoft2-Model'
+	#category : 'IngSoft2-Model',
+	#package : 'IngSoft2-Model'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 BoardGame class >> withShip: aNumberOfShips withBoard: aBoard WithDice: aCollectionOfDice andwithNumberOfLaps: numberOfLaps [
 
 	aNumberOfShips < 1 ifTrue: [  Error signal: 'A Board must have at least 1 ship to be created'  ].
@@ -27,23 +28,23 @@ BoardGame class >> withShip: aNumberOfShips withBoard: aBoard WithDice: aCollect
 		  andwithNumberOfLaps: numberOfLaps
 ]
 
-{ #category : #adding }
+{ #category : 'adding' }
 BoardGame >> addHyperGravityInformationTo: aBox withDieResult: aDieResult [ 
 	aBox setNumber: aDieResult .
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 BoardGame >> addHyperJumpInformationTo: aBox withParsecList: aParsecList withParsecLenght: aParsecLenght [
 
 	aBox addParsecsList: aParsecList withBoardLenght: board boardSize andParsecLength: aParsecLenght
 ]
 
-{ #category : #adding }
+{ #category : 'adding' }
 BoardGame >> addMoonWalkInformationTo: aBox withBoxesNumber: aNumberOfBoxesToMove [ 
 	aBox numberOfBoxesToMove: aNumberOfBoxesToMove.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 BoardGame >> changeTurn: playerTurn [
 |lastPlayer|
 lastPlayer :=aCollectionOfShips size.
@@ -55,38 +56,38 @@ lastPlayer :=aCollectionOfShips size.
 
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 BoardGame >> getBoard [
 
 	^board.
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 BoardGame >> getCards [
 ^aCollectionOfCards.
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 BoardGame >> getLapsToDo [
 	^laps.
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 BoardGame >> getLastCard [
 	^lastCard.
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 BoardGame >> getMaxDieResult [
 	^maxDieResult.
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 BoardGame >> getShipsPlaying [
 	^aCollectionOfShips
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 BoardGame >> initializeWithShips: aNumberOfShips whithBoard: aBoard withDice: aCollectionOfDice andwithNumberOfLaps: aNumberOfLaps [
 
 	| numberOfShips numberOfBoxes maxFuel aShip aCardManager|
@@ -111,13 +112,13 @@ BoardGame >> initializeWithShips: aNumberOfShips whithBoard: aBoard withDice: aC
 	aCollectionOfCards := OrderedCollection new
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 BoardGame >> passTurn [
 	(aCollectionOfShips at: playerTurn) skipTurn.
 	playerTurn := self changeTurn: playerTurn 
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 BoardGame >> playCard: aCard fromShip: aShip toTarget: aTarget [
     ((aCard isPermanent and: [(aCollectionOfShips indexOf: aShip) = playerTurn]) or: (aCard isInstant or: aCard isRedo))
         ifTrue: [
@@ -130,24 +131,25 @@ BoardGame >> playCard: aCard fromShip: aShip toTarget: aTarget [
 
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 BoardGame >> playTurn [
 
 	| dieResult |
 	(aCollectionOfShips at: playerTurn) checkTurn ifTrue: [
 		dieResult := (aCollectionOfShips at: playerTurn) throwDice: dice.
 		(aCollectionOfShips at: playerTurn) checkReward: dieResult withMax: maxDieResult.
+		(aCollectionOfShips at: playerTurn) newTurnPlayed.
 		board
 			players: aCollectionOfShips
 			playerTurn: playerTurn
 			withDiceResult: dieResult
 			andLaps: laps ].
-
+	(aCollectionOfShips at: playerTurn) addFuelHistory.
 	(aCollectionOfShips at: playerTurn) victory ifFalse: [
 		playerTurn := self changeTurn: playerTurn ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 BoardGame >> showRanking [
 	| ships sortedShips |
 	ships := aCollectionOfShips.
@@ -156,7 +158,7 @@ BoardGame >> showRanking [
 	^sortedShips collect: [:sortedShip | ships indexOf: sortedShip]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 BoardGame >> winnerIs [
 	|winner|
 	winner :=aCollectionOfShips at:1.

@@ -1,10 +1,11 @@
 Class {
-	#name : #ACardTest,
-	#superclass : #TestCase,
-	#category : #'IngSoft2-Tests'
+	#name : 'ACardTest',
+	#superclass : 'TestCase',
+	#category : 'IngSoft2-Tests',
+	#package : 'IngSoft2-Tests'
 }
 
-{ #category : #tests }
+{ #category : 'tests' }
 ACardTest >> test_01_WhenACardIsCreatedItsNotPermanentNitherInstant [
 
 	| aCard |

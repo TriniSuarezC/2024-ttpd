@@ -1,10 +1,11 @@
 Class {
-	#name : #ALoadedDieWithSequenceTest,
-	#superclass : #TestCase,
-	#category : 'IngSoft2-Tests'
+	#name : 'ALoadedDieWithSequenceTest',
+	#superclass : 'TestCase',
+	#category : 'IngSoft2-Tests',
+	#package : 'IngSoft2-Tests'
 }
 
-{ #category : #asserting }
+{ #category : 'asserting' }
 ALoadedDieWithSequenceTest >> should: aErrorBlock raise: anErrorClass withMessage: anErrorMessage [
 	self
 		should: aErrorBlock
@@ -13,7 +14,7 @@ ALoadedDieWithSequenceTest >> should: aErrorBlock raise: anErrorClass withMessag
 		self assert: error messageText equals: anErrorMessage ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ALoadedDieWithSequenceTest >> testALoadedDieOf4FacesReturnsASequenceFrom1To4WhenThrown [
 
 	| aLoadedDieWithSequence |
@@ -25,7 +26,7 @@ ALoadedDieWithSequenceTest >> testALoadedDieOf4FacesReturnsASequenceFrom1To4When
 	self assert: aLoadedDieWithSequence throw equals: 4
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ALoadedDieWithSequenceTest >> testALoadedDieOf5FacesReturnsASequenceFrom1To5WhenThrown [
 
 	| aLoadedDieWithSequence |
@@ -38,7 +39,7 @@ ALoadedDieWithSequenceTest >> testALoadedDieOf5FacesReturnsASequenceFrom1To5When
 	self assert: aLoadedDieWithSequence throw equals: 5
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ALoadedDieWithSequenceTest >> testALoadedDieOfNFacesReturnsASequenceFrom1ToNWhenThrown [
 
 	| aLoadedDieWithSequence |
@@ -50,7 +51,7 @@ ALoadedDieWithSequenceTest >> testALoadedDieOfNFacesReturnsASequenceFrom1ToNWhen
 	self assert: aLoadedDieWithSequence throw equals: 3
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ALoadedDieWithSequenceTest >> testALoadedDieWithSequenceCannotBeCreatedWithLessThan3Faces [
 
 	| aLoadedDieWithSequence |
@@ -60,7 +61,7 @@ ALoadedDieWithSequenceTest >> testALoadedDieWithSequenceCannotBeCreatedWithLessT
 		withMessage: 'A Die cannot be createdWith less of 3 faces'
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ALoadedDieWithSequenceTest >> testALoadedDieWithSequenceIsInitializedWithASequenceThenItThrowsTheSequence [
 
 	| aLoadedDieWithSequence |

@@ -1,10 +1,11 @@
 Class {
-	#name : #AHyperGravityBoxTest,
-	#superclass : #TestCase,
-	#category : #'IngSoft2-Tests'
+	#name : 'AHyperGravityBoxTest',
+	#superclass : 'TestCase',
+	#category : 'IngSoft2-Tests',
+	#package : 'IngSoft2-Tests'
 }
 
-{ #category : #tests }
+{ #category : 'tests' }
 AHyperGravityBoxTest >> test_02_AHyperGravityBoxHasANumerOfDie [
 
 	| aHyperGravity |
@@ -13,7 +14,7 @@ AHyperGravityBoxTest >> test_02_AHyperGravityBoxHasANumerOfDie [
 	self assert: aHyperGravity getNumberOfDie equals: 5.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 AHyperGravityBoxTest >> test_03_WhenAShipLandsInAHyperGravityBoxThenItsStateChangesJailState [
 
 	| aShip anotherShip aCollectionOfShips aHyperGravityBox |
@@ -30,7 +31,7 @@ AHyperGravityBoxTest >> test_03_WhenAShipLandsInAHyperGravityBoxThenItsStateChan
 
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 AHyperGravityBoxTest >> test_04_WhenAShipThrowsTheCorrectNumberInTheHyperGravityBoxThenTheStateChangesToPlaying [
 
 	| aShip anotherShip aCollectionOfShips aHyperGravityBox aCollectionOfDice aLoadedDie |
@@ -51,7 +52,7 @@ AHyperGravityBoxTest >> test_04_WhenAShipThrowsTheCorrectNumberInTheHyperGravity
 
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 AHyperGravityBoxTest >> test_05_WhenAShipThrowsTheCorrectNumberInTheHyperGravityBoxThenTheShipMoves [
 
 	| aShip anotherShip aCollectionOfShips aHyperGravityBox aCollectionOfDice aLoadedDie |
@@ -72,7 +73,7 @@ AHyperGravityBoxTest >> test_05_WhenAShipThrowsTheCorrectNumberInTheHyperGravity
 
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 AHyperGravityBoxTest >> test_06_WhenAShipThrowsTheCorrectNumberInTheHyperGravityBoxThenTheShipCosumnesFuel [
 
 	| aShip anotherShip aCollectionOfShips aHyperGravityBox aCollectionOfDice aLoadedDie |
@@ -94,7 +95,7 @@ AHyperGravityBoxTest >> test_06_WhenAShipThrowsTheCorrectNumberInTheHyperGravity
 
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 AHyperGravityBoxTest >> test_08_WhenAShipThrowsAFirstTimeTheIncorrectNumberButASecondTimeTheCorrectNumberThenStateChangesToJailThenToPlaying [
 
 	| aShip anotherShip aCollectionOfShips aHyperGravityBox aCollectionOfDice aSequenceDie |

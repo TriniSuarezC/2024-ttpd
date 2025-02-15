@@ -1,6 +1,6 @@
 Class {
-	#name : #Board,
-	#superclass : #Object,
+	#name : 'Board',
+	#superclass : 'Object',
 	#instVars : [
 		'boxes',
 		'lastBoxPlayed'
@@ -8,10 +8,11 @@ Class {
 	#classInstVars : [
 		'boxes'
 	],
-	#category : #'IngSoft2-Model'
+	#category : 'IngSoft2-Model',
+	#package : 'IngSoft2-Model'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 Board class >> withBoxesArray: aBoxesArray [
 
 	aBoxesArray size < 4 ifTrue: [
@@ -20,22 +21,22 @@ Board class >> withBoxesArray: aBoxesArray [
 	^ self new initializeWithBoxesArray: aBoxesArray
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 Board >> boardSize [
 	^boxes size.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 Board >> boxes [
 	^ boxes
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 Board >> checkAfterEffects: aCollectionOfShips [
 	aCollectionOfShips do:[:aShip| self checkPositionOf: aShip.]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 Board >> checkPositionOf: aShip [
 
 	| actualPosition |
@@ -55,18 +56,18 @@ Board >> checkPositionOf: aShip [
 	aShip movesTo: actualPosition
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 Board >> getLastBox [
 	^lastBoxPlayed.
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 Board >> initializeWithBoxesArray: aBoxesArray [ 
 	boxes := aBoxesArray.
 	lastBoxPlayed := (aBoxesArray at: 1)
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 Board >> players: aCollectionOfShips playerTurn: aPlayerTurn withDiceResult: aDiceResult andLaps: laps [
 
 	| actualPosition aShip aBox |

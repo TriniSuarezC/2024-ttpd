@@ -1,15 +1,16 @@
 Class {
-	#name : #ABoardGameTest,
-	#superclass : #TestCase,
-	#category : #'IngSoft2-Tests'
+	#name : 'ABoardGameTest',
+	#superclass : 'TestCase',
+	#category : 'IngSoft2-Tests',
+	#package : 'IngSoft2-Tests'
 }
 
-{ #category : #asserting }
+{ #category : 'asserting' }
 ABoardGameTest >> should: anErrorBlock raise: anErrorClass withMessage: aMessage [ 
 	self should: anErrorBlock raise: anErrorClass withExceptionDo: [ :error | self assert: error messageText equals: aMessage ] 
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ABoardGameTest >> test_05_WhenABoardGameIsCreatedThenItHasANumberOfLapsToDo [
 
 	| aBoardGame aCollectionOfDice aLoadedDie boxesArray aBoard |
@@ -32,7 +33,7 @@ ABoardGameTest >> test_05_WhenABoardGameIsCreatedThenItHasANumberOfLapsToDo [
 	self assert: aBoardGame getLapsToDo equals: 2
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ABoardGameTest >> test_06_WhenTheGameIsPlayedWithMoreThanOneBoxThenTheGameHasAWinner [
 
 	| aBoardGame aCollectionOfDice boxesArray aLoadedDie aBoard |
@@ -59,7 +60,7 @@ ABoardGameTest >> test_06_WhenTheGameIsPlayedWithMoreThanOneBoxThenTheGameHasAWi
 	self assert: aBoardGame winnerIs equals: 1
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ABoardGameTest >> test_07_WhenTheGameIsAskedToChangeTurnThenTheTurnIsIncremented [
 
 	| turn aBoard aCollectionOfDice aLoadedDie aBoardGame nextTurn boxesArray |
@@ -86,7 +87,7 @@ ABoardGameTest >> test_07_WhenTheGameIsAskedToChangeTurnThenTheTurnIsIncremented
 	self assert: nextTurn equals: 2
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ABoardGameTest >> test_08_WhenAGameFinishesThenRankingIsShown [
 
 	| aBoardGame aCollectionOfDice aLoadedDie expectedRanking ranking boxesArray aBoard |
@@ -116,7 +117,7 @@ ABoardGameTest >> test_08_WhenAGameFinishesThenRankingIsShown [
 	self assert: aBoardGame showRanking equals: expectedRanking
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ABoardGameTest >> test_09_ABoardGameWillNotStartWithLessThan1Ship [
 
 	| aCollectionOfDice aDie boxesArray|
@@ -139,7 +140,7 @@ ABoardGameTest >> test_09_ABoardGameWillNotStartWithLessThan1Ship [
 		withMessage: 'A Board must have at least 1 ship to be created'
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ABoardGameTest >> test_10_ABoardGameWillNotStartWithLessThan2Laps [
 
 	| aCollectionOfDice aDie boxesArray|
@@ -162,7 +163,7 @@ ABoardGameTest >> test_10_ABoardGameWillNotStartWithLessThan2Laps [
 		withMessage: 'A Board must have at least 2 laps to be created' 
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ABoardGameTest >> test_11_WhenItIsAPlayerTurnThenPlayerChooseToPlay [
 
 	| aCollectionOfDice aLoadedDie aBoardGame boxesArray aBoard |
@@ -186,7 +187,7 @@ ABoardGameTest >> test_11_WhenItIsAPlayerTurnThenPlayerChooseToPlay [
 	self assert: aBoardGame winnerIs equals: 1
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ABoardGameTest >> test_12_WhenItIsAPlayerTurnThenPlayerChooseToPassTurn [
 
 	| aCollectionOfDice aLoadedDie aBoardGame boxesArray aBoard |
@@ -215,7 +216,7 @@ ABoardGameTest >> test_12_WhenItIsAPlayerTurnThenPlayerChooseToPassTurn [
 	
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ABoardGameTest >> test_14_WhenAnRepeatCardIsPlayedByAShipThenItsRemovedFromTheShipHand [
 
 	| aCollectionOfDice aLoadedDie aBoardGame boxesArray aBoard aCard aShip anotherShip |
@@ -244,7 +245,7 @@ ABoardGameTest >> test_14_WhenAnRepeatCardIsPlayedByAShipThenItsRemovedFromTheSh
 	
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ABoardGameTest >> test_15_WhenAnCancellationCardIsPlayedByAShipThenItsRemovedFromTheShipHand [ 
 
 	| aCollectionOfDice aLoadedDie aBoardGame boxesArray aBoard aCard aPermanentCard aShip anotherShip |
@@ -275,7 +276,7 @@ ABoardGameTest >> test_15_WhenAnCancellationCardIsPlayedByAShipThenItsRemovedFro
 	self assert: aBoardGame getCards size = 0.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ABoardGameTest >> test_16_ABoardGameKnowsItMaxDieResult [
 
 	| aCollectionOfDice aLoadedDie aBoardGame boxesArray aBoard anotherLoadedDie |
@@ -300,7 +301,7 @@ ABoardGameTest >> test_16_ABoardGameKnowsItMaxDieResult [
 	
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ABoardGameTest >> test_17_WhenAAccelerationCardIsPlayedThenAllShipsGetTheirMovesAffected [
 
 	| aCollectionOfDice aLoadedDie aBoardGame boxesArray aBoard anotherLoadedDie aPermanentCard aShip anotherShip shipsPlaying |
@@ -333,7 +334,7 @@ ABoardGameTest >> test_17_WhenAAccelerationCardIsPlayedThenAllShipsGetTheirMoves
 	
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ABoardGameTest >> test_18_WhenAOverloadCardIsPlayedThenAllShipsGetTheirMovesAffected [
 
 	| aCollectionOfDice aLoadedDie aBoardGame boxesArray aBoard anotherLoadedDie aPermanentCard aShip anotherShip |
@@ -364,7 +365,7 @@ ABoardGameTest >> test_18_WhenAOverloadCardIsPlayedThenAllShipsGetTheirMovesAffe
 	
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ABoardGameTest >> test_19_WhenAAllyCardIsPlayedThenAllShipsGetTheirMovesAffected [
 
 	| aCollectionOfDice aLoadedDie aBoardGame boxesArray aBoard anotherLoadedDie aPermanentCard aShip anotherShip |
@@ -399,7 +400,7 @@ ABoardGameTest >> test_19_WhenAAllyCardIsPlayedThenAllShipsGetTheirMovesAffected
 	
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ABoardGameTest >> test_20_TheGameKnowsTheLastCardBeingPlayed [
 
 	| aCollectionOfDice aLoadedDie aBoardGame boxesArray aBoard anotherLoadedDie aPermanentCard aShip anotherShip |
@@ -428,7 +429,7 @@ ABoardGameTest >> test_20_TheGameKnowsTheLastCardBeingPlayed [
 	
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ABoardGameTest >> test_21_WhenARedoCardIsPLayedAfterAPermanentCardThenTheEffectIsTheOneOnThePermanentCard [
 
 	| aCollectionOfDice aLoadedDie aBoardGame boxesArray aBoard anotherLoadedDie aPermanentCard aRedoCard aShip anotherShip |
@@ -460,7 +461,7 @@ ABoardGameTest >> test_21_WhenARedoCardIsPLayedAfterAPermanentCardThenTheEffectI
 	
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ABoardGameTest >> test_23_WhenARedoCardIsPLayedAfterAReDoCardThenTheEffectIsTheOneOnTheReDoCard [
 
 	| aCollectionOfDice aLoadedDie aBoardGame boxesArray aBoard anotherLoadedDie aPermanentCard aRedoCard anotherRedoCard aShip aShip2 aShip3 |
@@ -502,7 +503,7 @@ ABoardGameTest >> test_23_WhenARedoCardIsPLayedAfterAReDoCardThenTheEffectIsTheO
 	self assert: ((aShip3 getPosition) = 4) .
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ABoardGameTest >> test_24_WhenABoardGameAddsInformationtoAHyperJumpBoxThenItIsAdded [
 
 	| aCollectionOfDice aLoadedDie aBoardGame boxesArray aBoard anotherLoadedDie aBox aParsecsList|
@@ -533,7 +534,7 @@ ABoardGameTest >> test_24_WhenABoardGameAddsInformationtoAHyperJumpBoxThenItIsAd
 	
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ABoardGameTest >> test_25_WhenABoardGameAddsInformationtoAHyperGravityBoxThenItIsAdded [
 
 	| aCollectionOfDice aLoadedDie aBoardGame boxesArray aBoard anotherLoadedDie aBox aDieResult|
@@ -561,7 +562,7 @@ ABoardGameTest >> test_25_WhenABoardGameAddsInformationtoAHyperGravityBoxThenItI
 	
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ABoardGameTest >> test_26_WhenABoardGameAddsInformationAMoonWalkBoxThenItIsReturned [
 
 	| aCollectionOfDice aLoadedDie aBoardGame boxesArray aBoard anotherLoadedDie aBox aBoxNumber|
@@ -589,7 +590,7 @@ ABoardGameTest >> test_26_WhenABoardGameAddsInformationAMoonWalkBoxThenItIsRetur
 	
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ABoardGameTest >> test_27_WhenANotHyperGravityBoxAskToAddInformationThenAErrorRaise [
 
 	| aCollectionOfDice aLoadedDie aBoardGame boxesArray aBoard anotherLoadedDie aBox aDieResult |
@@ -621,7 +622,7 @@ ABoardGameTest >> test_27_WhenANotHyperGravityBoxAskToAddInformationThenAErrorRa
 		withMessage: 'This is not an HyperGravityBox.'
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ABoardGameTest >> test_28_WhenANotHyperJumpBoxAskToAddInformationThenAnErrorRaise [
 
 	| aCollectionOfDice aLoadedDie aBoardGame boxesArray aBoard anotherLoadedDie aBox aParsecsList |
@@ -656,7 +657,7 @@ ABoardGameTest >> test_28_WhenANotHyperJumpBoxAskToAddInformationThenAnErrorRais
 		withMessage: 'This is not an HyperJumpBox.'
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ABoardGameTest >> test_29_WhenANotMoonWalkBoxAskToAddInformationThenAnErrorRaise [
 
 	| aCollectionOfDice aLoadedDie aBoardGame boxesArray aBoard anotherLoadedDie aBox aBoxNumber |
@@ -688,7 +689,7 @@ ABoardGameTest >> test_29_WhenANotMoonWalkBoxAskToAddInformationThenAnErrorRaise
 		withMessage: 'This is not an MoonWalkBox.'
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ABoardGameTest >> test_30_WhenAOverloadCardIsPlayedThenTheShipsMovesGetAffected_Refactor [
 
 	| aCollectionOfDice aLoadedDie aBoardGame boxesArray aBoard anotherLoadedDie aOverloadCard aShip anotherShip |
@@ -719,7 +720,7 @@ ABoardGameTest >> test_30_WhenAOverloadCardIsPlayedThenTheShipsMovesGetAffected_
 	
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ABoardGameTest >> test_31_WhenAAccelerationCardIsPlayedThenAllShipsGetTheirMovesAffected_Refactor [
 
 	| aCollectionOfDice aLoadedDie aBoardGame boxesArray aBoard anotherLoadedDie anAcellerationCard aShip anotherShip shipsPlaying |
@@ -751,7 +752,7 @@ ABoardGameTest >> test_31_WhenAAccelerationCardIsPlayedThenAllShipsGetTheirMoves
 	self assert: (anotherShip getPosition) equals: 91.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ABoardGameTest >> test_32_WhenAAllyCardIsPlayedThenShipsGetTheirMovesAffected_Refactor [
 
 	| aCollectionOfDice aLoadedDie aBoardGame boxesArray aBoard anotherLoadedDie anAllyCard aShip anotherShip |
@@ -785,7 +786,7 @@ ABoardGameTest >> test_32_WhenAAllyCardIsPlayedThenShipsGetTheirMovesAffected_Re
 	self assert: (anotherShip getFuel) equals: 21.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ABoardGameTest >> test_33_TheGameKnowsTheLastCardBeingPlayed_Refactor [
 
 	| aCollectionOfDice aLoadedDie aBoardGame boxesArray aBoard anotherLoadedDie aCard aShip anotherShip |
@@ -813,7 +814,7 @@ ABoardGameTest >> test_33_TheGameKnowsTheLastCardBeingPlayed_Refactor [
 	self assert: ((aBoardGame getLastCard) isKindOf: AllyCard) .
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ABoardGameTest >> test_34_WhenAShipTryesToPlayAPermanentCardAndItsNotItsTurnThenAnErrorIsRaised [
 
 	| aCollectionOfDice aLoadedDie aBoardGame boxesArray aBoard anotherLoadedDie aCard aShip anotherShip aPermanentCard |
@@ -843,4 +844,42 @@ ABoardGameTest >> test_34_WhenAShipTryesToPlayAPermanentCardAndItsNotItsTurnThen
 		raise: Error
 		withMessage: 'You cant play a permanent card when its not your turn.'.
 
+]
+
+{ #category : 'tests' }
+ABoardGameTest >> test_35_WhenATimeMachineCardIsPlayedAfterTwoTurnsHavePassedThenTheFuelIsRestarted [
+
+	| aCollectionOfDice aLoadedDie aBoardGame boxesArray aBoard anotherLoadedDie aTimeMachineCard aShip anotherShip checkFuel |
+	boxesArray := OrderedCollection new.
+	boxesArray add: (NoEffectBox inPlace: 1).
+	boxesArray add: (NoEffectBox inPlace: 2).
+	boxesArray add: (NoEffectBox inPlace: 3).
+	boxesArray add: (NoEffectBox inPlace: 4).
+	boxesArray add: (NoEffectBox inPlace: 5).
+	boxesArray add: (NoEffectBox inPlace: 6).
+	boxesArray add: (NoEffectBox inPlace: 7).
+	aBoard := Board withBoxesArray: boxesArray.
+	aCollectionOfDice := OrderedCollection new.
+	aLoadedDie := LoadedDie of: 5.
+	anotherLoadedDie := LoadedDie of: 4.
+	aCollectionOfDice add: aLoadedDie.
+	aCollectionOfDice add: anotherLoadedDie.
+	aBoardGame := BoardGame
+		              withShip: 2
+		              withBoard: aBoard
+		              WithDice: aCollectionOfDice
+		              andwithNumberOfLaps: 7.
+	aTimeMachineCard := TimeMachineCard new.
+	aShip := (aBoardGame getShipsPlaying at: 1).
+	aShip addCard: aTimeMachineCard.
+	anotherShip := (aBoardGame getShipsPlaying at: 2).
+	aBoardGame playTurn. "juega la ship 1" 
+	aBoardGame playTurn. "juega la ship 2"
+	checkFuel := anotherShip getFuel.
+	aBoardGame playTurn. "juega la ship 1"
+	aBoardGame playTurn. "juega la ship 2"
+	aBoardGame playTurn.	"juega la ship 1"
+	aBoardGame playTurn. "juega la ship 2"
+	aBoardGame playCard: aTimeMachineCard fromShip: aShip toTarget: anotherShip.
+	self assert: anotherShip getFuel equals: checkFuel.
 ]

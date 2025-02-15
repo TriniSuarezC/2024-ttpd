@@ -1,10 +1,11 @@
 Class {
-	#name : #AJailStateTest,
-	#superclass : #TestCase,
-	#category : 'IngSoft2-Tests'
+	#name : 'AJailStateTest',
+	#superclass : 'TestCase',
+	#category : 'IngSoft2-Tests',
+	#package : 'IngSoft2-Tests'
 }
 
-{ #category : #tests }
+{ #category : 'tests' }
 AJailStateTest >> test_01_WhenAShipIsInJailStateThenTheShipHasntWonYet [ 
 
 	| aJailState |
@@ -13,7 +14,7 @@ AJailStateTest >> test_01_WhenAShipIsInJailStateThenTheShipHasntWonYet [
 
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 AJailStateTest >> test_02_WhenAShipIsInJailStateThenItHasAnExpectedDieToThrow [ 
 
 	| aJailState  |

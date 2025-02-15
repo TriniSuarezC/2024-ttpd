@@ -1,13 +1,14 @@
 Class {
-	#name : #MoonWalkBox,
-	#superclass : #Box,
+	#name : 'MoonWalkBox',
+	#superclass : 'Box',
 	#instVars : [
 		'numberOfBoxesToMove'
 	],
-	#category : 'IngSoft2-Model'
+	#category : 'IngSoft2-Model',
+	#package : 'IngSoft2-Model'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 MoonWalkBox >> effectShips: aCollectionOfShips playing: aShip [ 
 	| index |
 	index := aCollectionOfShips indexOf: aShip.
@@ -16,18 +17,18 @@ MoonWalkBox >> effectShips: aCollectionOfShips playing: aShip [
 	(aCollectionOfShips at: i) consumeFuel: numberOfBoxesToMove ]]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 MoonWalkBox >> getnumberOfBoxesToMove [
 	^numberOfBoxesToMove.
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 MoonWalkBox >> initializeInPlace: aPlace [
 	place := aPlace.
 	numberOfBoxesToMove := (1 to: 100) atRandom.
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 MoonWalkBox >> numberOfBoxesToMove: aNumberOfBoxesToMove [ 
 	numberOfBoxesToMove := aNumberOfBoxesToMove.
 ]

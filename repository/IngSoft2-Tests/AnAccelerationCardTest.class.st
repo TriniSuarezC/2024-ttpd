@@ -1,17 +1,18 @@
 Class {
-	#name : #AnAccelerationCardTest,
-	#superclass : #TestCase,
-	#category : #'IngSoft2-Tests'
+	#name : 'AnAccelerationCardTest',
+	#superclass : 'TestCase',
+	#category : 'IngSoft2-Tests',
+	#package : 'IngSoft2-Tests'
 }
 
-{ #category : #running }
+{ #category : 'running' }
 AnAccelerationCardTest >> test_01_AcellerationCardPowerMoveIs1 [ 
 | aCard |
 aCard:= AccelerationCard new.
 self assert: aCard powerMove equals: 1.
 ]
 
-{ #category : #running }
+{ #category : 'running' }
 AnAccelerationCardTest >> test_02_WhenAnAccelerationCardIsAplyThenAllShipsGetThisCardActive [
 
 | aCard aShip anotherShip  boxesArray aBoard aCollectionOfDice aLoadedDie anotherLoadedDie aBoardGame shipsPlaying |
@@ -45,7 +46,7 @@ self assert:((aShip getActiveCards at:1) isKindOf:AccelerationCard).
 
 ]
 
-{ #category : #running }
+{ #category : 'running' }
 AnAccelerationCardTest >> test_03_AnAcelerationCardMessageIsBeingRefactor [ 
 
 	| anAcelerationCard aShip anotherShip aBoardGame boxesArray aBoard aCollectionOfDice aLoadedDie anotherLoadedDie shipsPlaying |
