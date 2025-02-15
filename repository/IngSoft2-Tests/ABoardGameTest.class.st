@@ -845,3 +845,41 @@ ABoardGameTest >> test_34_WhenAShipTryesToPlayAPermanentCardAndItsNotItsTurnThen
 		withMessage: 'You cant play a permanent card when its not your turn.'.
 
 ]
+
+{ #category : 'tests' }
+ABoardGameTest >> test_35_WhenATimeMachineCardIsPlayedAfterTwoTurnsHavePassedThenTheFuelIsRestarted [
+
+	| aCollectionOfDice aLoadedDie aBoardGame boxesArray aBoard anotherLoadedDie aTimeMachineCard aShip anotherShip checkFuel |
+	boxesArray := OrderedCollection new.
+	boxesArray add: (NoEffectBox inPlace: 1).
+	boxesArray add: (NoEffectBox inPlace: 2).
+	boxesArray add: (NoEffectBox inPlace: 3).
+	boxesArray add: (NoEffectBox inPlace: 4).
+	boxesArray add: (NoEffectBox inPlace: 5).
+	boxesArray add: (NoEffectBox inPlace: 6).
+	boxesArray add: (NoEffectBox inPlace: 7).
+	aBoard := Board withBoxesArray: boxesArray.
+	aCollectionOfDice := OrderedCollection new.
+	aLoadedDie := LoadedDie of: 5.
+	anotherLoadedDie := LoadedDie of: 4.
+	aCollectionOfDice add: aLoadedDie.
+	aCollectionOfDice add: anotherLoadedDie.
+	aBoardGame := BoardGame
+		              withShip: 2
+		              withBoard: aBoard
+		              WithDice: aCollectionOfDice
+		              andwithNumberOfLaps: 7.
+	aTimeMachineCard := TimeMachineCard new.
+	aShip := (aBoardGame getShipsPlaying at: 1).
+	aShip addCard: aTimeMachineCard.
+	anotherShip := (aBoardGame getShipsPlaying at: 2).
+	aBoardGame playTurn. "juega la ship 1" 
+	aBoardGame playTurn. "juega la ship 2"
+	checkFuel := anotherShip getFuel.
+	aBoardGame playTurn. "juega la ship 1"
+	aBoardGame playTurn. "juega la ship 2"
+	aBoardGame playTurn.	"juega la ship 1"
+	aBoardGame playTurn. "juega la ship 2"
+	aBoardGame playCard: aTimeMachineCard fromShip: aShip toTarget: anotherShip.
+	self assert: anotherShip getFuel equals: checkFuel.
+]

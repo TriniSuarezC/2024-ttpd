@@ -195,6 +195,11 @@ Ship >> intitializeWithMaxFuel: amountMaxFuel [
 ]
 
 { #category : 'testing' }
+Ship >> isAffectedByTimeMachineCard [
+	fuel := fuelHistory at: ((turnsPlayed+1) -2).
+]
+
+{ #category : 'testing' }
 Ship >> isCursed [
 	state := Jail new.
 ]

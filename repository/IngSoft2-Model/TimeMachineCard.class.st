@@ -8,5 +8,6 @@ Class {
 { #category : 'as yet unclassified' }
 TimeMachineCard >> affectTo: aShip from: aShip2 playing: aBoardGame [ 
 	aShip canPlayTimeMachine.
+	aShip isAffectedByTimeMachineCard.
 	^TimeMachineCard new. 
 ]
