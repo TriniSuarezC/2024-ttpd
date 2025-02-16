@@ -82,7 +82,7 @@ ATimeMachineCardTest >> test_03_WhenATimeMachieCardIsPlayedAndTheShipHasAnAllyTh
 	checkFuel1 := aShip getFuel.
 
 	aBoardGame playTurn.
-		checkFuel2 := anotherShip getFuel.
+	checkFuel2 := anotherShip getFuel.
 	aBoardGame playTurn.
 	aBoardGame playTurn.
 
