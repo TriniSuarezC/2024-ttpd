@@ -34,3 +34,24 @@ ACardBoxTest >> test_02_WhenAShipLandsInACardBoxThenACardIsAddedToItsCollectionO
 	
 	
 ]
+
+{ #category : 'tests' }
+ACardBoxTest >> test_03_WhenAShipLandsInACardBoxRevertedThenARandomCardIsDeletedFromTheShipsCard [
+
+	| aCardBox aShip anotherShip aCollectionOfShips |
+	aShip := Ship createWithMaxFuel: 1000.
+	anotherShip := Ship createWithMaxFuel: 1000.
+	aCollectionOfShips := OrderedCollection new.
+	aCollectionOfShips add: aShip.
+	aCollectionOfShips add: anotherShip.
+	aShip addCard: (Card new).
+	aShip addCard: (Card new).
+	aCardBox := CardBox inPlace: 5.
+	aCardBox stateAlteration.
+	aShip moves: 4.
+	aShip consumeFuel: 4.
+	aCardBox reversalEffectShips: aCollectionOfShips playing: aShip.
+	self assert: aShip getCards size equals: 1. 
+	
+	
+]

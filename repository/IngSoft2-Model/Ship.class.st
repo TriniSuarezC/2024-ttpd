@@ -248,6 +248,13 @@ Ship >> removeCardFromHand: aCard [
 	cardToRemove = nil ifFalse: [ aCollectionOfCards remove: cardToRemove.]
 ]
 
+{ #category : 'removing' }
+Ship >> removeRandomCard [
+	| aRandomCard |
+	aRandomCard := self selectRandomCard.
+	self removeCardFromHand: aRandomCard.
+]
+
 { #category : 'as yet unclassified' }
 Ship >> restartFuel [
 	fuel:= maxFuel .
@@ -266,11 +273,11 @@ Ship >> selectCard: aCard [
 ]
 
 { #category : 'as yet unclassified' }
-Ship >> selectRandomActiveCard [
-	| activeCardsSize randomNumber |
-	activeCardsSize := aCollectionOfActiveCards size.
-	randomNumber := (1 to: activeCardsSize) atRandom.
-	^(aCollectionOfActiveCards at: randomNumber)
+Ship >> selectRandomCard [
+	| cardsSize randomNumber |
+	cardsSize := (aCollectionOfCards size)-1.
+	randomNumber := ((1 to: cardsSize) atRandom).
+	^(aCollectionOfCards at: randomNumber)
 ]
 
 { #category : 'as yet unclassified' }

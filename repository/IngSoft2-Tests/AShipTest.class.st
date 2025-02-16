@@ -614,6 +614,22 @@ AShipTest >> test_52_WhenAShipIsAskedForARandomCardACardIsReturned [
 	aShip addActiveCards: aCard.
 	aShip addActiveCards: aCard.
 	
-	self assert: (aShip selectRandomActiveCard isKindOf: PermanentCard ).
+	self assert: (aShip selectRandomCard isKindOf: PermanentCard ).
+
+]
+
+{ #category : 'tests' }
+AShipTest >> test_53_WhenAShipIsAskedForToRemoveARandomCardThenACardIsRemoved [
+
+	| aShip aCard anotherCard oneMoreCard|
+	aShip := Ship createWithMaxFuel: 1000.
+	aCard := Card new.
+	anotherCard := Card new.
+	oneMoreCard := Card new.
+	aShip addCard: aCard.
+	aShip addCard: anotherCard.
+	aShip addCard: oneMoreCard.
+	aShip removeRandomCard.
+	self assert: (aShip getCards size) equals: 2.
 
 ]
