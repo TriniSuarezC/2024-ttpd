@@ -119,3 +119,46 @@ AHyperGravityBoxTest >> test_08_WhenAShipThrowsAFirstTimeTheIncorrectNumberButAS
 	self assert: (aShip getState isKindOf: Playing).
 	self assert: aShip getFuel equals: 993.
 ]
+
+{ #category : 'tests' }
+AHyperGravityBoxTest >> test_09_WhenAShipThrowsTheCorrectNumberInTheRevertedHyperGravityBoxThenTheStateKeepsBeingJail [
+
+	| aShip anotherShip aCollectionOfShips aHyperGravityBox aCollectionOfDice aLoadedDie |
+	aShip:=Ship createWithMaxFuel: 1000.
+	anotherShip :=Ship createWithMaxFuel: 1000.
+	aCollectionOfShips:=OrderedCollection  new.
+	aCollectionOfShips add: aShip.
+	aCollectionOfShips add: anotherShip .
+	aCollectionOfDice := OrderedCollection new.
+	aLoadedDie := LoadedDie of: 5.
+	aCollectionOfDice add: aLoadedDie.	
+	aHyperGravityBox := HyperGravityBox inPlace: 3.
+	aHyperGravityBox setNumber: 5.
+	aShip moves: 2.
+	aShip throwDice: aCollectionOfDice.
+	aHyperGravityBox reversalEffectShips: aCollectionOfShips  playing: aShip. 
+	self assert: (aShip getState isKindOf: Jail).
+
+]
+
+{ #category : 'tests' }
+AHyperGravityBoxTest >> test_10_WhenAShipThrowsTheIncorrectNumberInTheRevertedHyperGravityBoxThenTheStateChangesToPlaying [
+
+	| aShip anotherShip aCollectionOfShips aHyperGravityBox aCollectionOfDice aSequenceDie |
+	aShip := Ship createWithMaxFuel: 1000.
+	anotherShip := Ship createWithMaxFuel: 1000.
+	aCollectionOfShips := OrderedCollection new.
+	aCollectionOfShips add: aShip.
+	aCollectionOfShips add: anotherShip.
+	aCollectionOfDice := OrderedCollection new.
+	aSequenceDie := LoadedDieWithSequence loadedWithSequence: #( 1 5 ).
+	aCollectionOfDice add: aSequenceDie.
+	aHyperGravityBox := HyperGravityBox inPlace: 3.
+	aHyperGravityBox setNumber: 5.
+	aShip moves: 2.
+	aShip consumeFuel: 2.
+	aShip throwDice: aCollectionOfDice.
+	aHyperGravityBox reversalEffectShips: aCollectionOfShips playing: aShip.
+	self assert: (aShip getState isKindOf: Playing).
+
+]

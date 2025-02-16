@@ -30,6 +30,11 @@ HyperGravityBox >> initializeInPlace: aPosition [
 	dieResult := 3.
 ]
 
+{ #category : 'as yet unclassified' }
+HyperGravityBox >> reversalEffectShips: aCollection playing: aShip [ 
+	aShip getLastDieResult = dieResult ifTrue: [ aShip isCursed ] ifFalse: [ aShip endCursed. ]
+]
+
 { #category : 'initialization' }
 HyperGravityBox >> setNumber: aDieResult [ 
 	dieResult := aDieResult.
