@@ -31,7 +31,8 @@ WormHoleBox >> getDestiny [
 
 { #category : 'initialization' }
 WormHoleBox >> initializeInPlace: aPosition [
-	place := aPosition
+	place := aPosition.
+	state := NormalBox new.
 ]
 
 { #category : 'as yet unclassified' }
@@ -40,6 +41,17 @@ WormHoleBox >> reversalEffectShips: aCollection playing: aShip [
 	| destinationPlace |
 	destinationPlace := destiny getPosition.
 
+]
+
+{ #category : 'as yet unclassified' }
+WormHoleBox >> stateAlteration [
+	state := state changeState.
+	destiny stateChange.
+]
+
+{ #category : 'as yet unclassified' }
+WormHoleBox >> stateChange [
+	state := state changeState.
 ]
 
 { #category : 'as yet unclassified' }
