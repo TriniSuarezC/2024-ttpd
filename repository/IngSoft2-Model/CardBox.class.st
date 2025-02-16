@@ -31,3 +31,10 @@ CardBox >> initializeInPlace: aPosition [
 	myCardManager := CardsManager new.
 	state := NormalBox new.
 ]
+
+{ #category : 'as yet unclassified' }
+CardBox >> reversalEffectShips: aCollectionOfShips playing: aShip [
+	| aRandomCard |
+	aRandomCard := aShip selectRandomActiveCard.
+	aShip removeActiveCard: aRandomCard.
+]
