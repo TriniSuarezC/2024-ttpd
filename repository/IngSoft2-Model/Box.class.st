@@ -2,7 +2,8 @@ Class {
 	#name : 'Box',
 	#superclass : 'Object',
 	#instVars : [
-		'place'
+		'place',
+		'state'
 	],
 	#category : 'IngSoft2-Model',
 	#package : 'IngSoft2-Model'
@@ -32,6 +33,7 @@ Box >> getPosition [
 { #category : 'initialization' }
 Box >> initializeInPlace: aPlace [
 	place := aPlace.
+	state := NormalBox new.
 	
 ]
 
@@ -44,4 +46,14 @@ Box >> numberOfBoxesToMove: aNumberOfBoxesToMove [
 { #category : 'testing' }
 Box >> setNumber: aDieResult [ 
 	Error signal: 'This is not an HyperGravityBox.'
+]
+
+{ #category : 'accessing' }
+Box >> state [
+	^ state
+]
+
+{ #category : 'as yet unclassified' }
+Box >> stateAlteration [
+	state := state changeState.
 ]
