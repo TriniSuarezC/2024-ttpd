@@ -29,4 +29,5 @@ CardBox >> getCardManager [
 CardBox >> initializeInPlace: aPosition [
 	place := aPosition.
 	myCardManager := CardsManager new.
+	state := NormalBox new.
 ]

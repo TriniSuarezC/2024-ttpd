@@ -28,6 +28,7 @@ HyperGravityBox >> getNumberOfDie [
 HyperGravityBox >> initializeInPlace: aPosition [
 	place := aPosition.
 	dieResult := 3.
+	state := NormalBox new.
 ]
 
 { #category : 'as yet unclassified' }

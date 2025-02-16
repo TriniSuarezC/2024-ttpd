@@ -186,7 +186,6 @@ Ship >> increaseMaxFuel [
 
 { #category : 'as yet unclassified' }
 Ship >> intitializeWithMaxFuel: amountMaxFuel [ 
-	| aCard anotherCard |
 	position:= 1.
 	fuel:= amountMaxFuel.
 	maxFuel:= amountMaxFuel.

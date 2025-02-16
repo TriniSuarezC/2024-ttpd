@@ -134,6 +134,7 @@ AHyperGravityBoxTest >> test_09_WhenAShipThrowsTheCorrectNumberInTheRevertedHype
 	aCollectionOfDice add: aLoadedDie.	
 	aHyperGravityBox := HyperGravityBox inPlace: 3.
 	aHyperGravityBox setNumber: 5.
+	aHyperGravityBox stateAlteration.
 	aShip moves: 2.
 	aShip throwDice: aCollectionOfDice.
 	aHyperGravityBox reversalEffectShips: aCollectionOfShips  playing: aShip. 
@@ -151,10 +152,11 @@ AHyperGravityBoxTest >> test_10_WhenAShipThrowsTheIncorrectNumberInTheRevertedHy
 	aCollectionOfShips add: aShip.
 	aCollectionOfShips add: anotherShip.
 	aCollectionOfDice := OrderedCollection new.
-	aSequenceDie := LoadedDieWithSequence loadedWithSequence: #( 1 5 ).
+	aSequenceDie := LoadedDie of: 10.
 	aCollectionOfDice add: aSequenceDie.
 	aHyperGravityBox := HyperGravityBox inPlace: 3.
 	aHyperGravityBox setNumber: 5.
+	aHyperGravityBox stateAlteration.
 	aShip moves: 2.
 	aShip consumeFuel: 2.
 	aShip throwDice: aCollectionOfDice.
