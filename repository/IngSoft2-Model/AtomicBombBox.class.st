@@ -10,3 +10,8 @@ AtomicBombBox >> effectShips: aCollectionOfShips playing: aShip [
 
 	aCollectionOfShips  do:[:OneShip| OneShip  movesTo: 1].
 ]
+
+{ #category : 'as yet unclassified' }
+AtomicBombBox >> reversalEffectShips: aCollection playing: aShip [ 
+	self effectShips: aCollection playing: aShip.
+]
