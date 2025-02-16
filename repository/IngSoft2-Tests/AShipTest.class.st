@@ -601,3 +601,19 @@ AShipTest >> test_51_WhenAShipGetsAnAllyThenTheAllyCanBeKnown [
 
 
 ]
+
+{ #category : 'tests' }
+AShipTest >> test_52_WhenAShipIsAskedForARandomCardACardIsReturned [
+
+	| aShip aCard anotherCard|
+	aShip := Ship createWithMaxFuel: 1000.
+	aCard := PermanentCard new.
+	anotherCard := PermanentCard new.
+	aShip addCard: aCard.
+	aShip addCard: anotherCard.
+	aShip addActiveCards: aCard.
+	aShip addActiveCards: aCard.
+	
+	self assert: (aShip selectRandomActiveCard isKindOf: PermanentCard ).
+
+]

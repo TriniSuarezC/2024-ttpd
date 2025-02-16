@@ -266,6 +266,14 @@ Ship >> selectCard: aCard [
 ]
 
 { #category : 'as yet unclassified' }
+Ship >> selectRandomActiveCard [
+	| activeCardsSize randomNumber |
+	activeCardsSize := aCollectionOfActiveCards size.
+	randomNumber := (1 to: activeCardsSize) atRandom.
+	^(aCollectionOfActiveCards at: randomNumber)
+]
+
+{ #category : 'as yet unclassified' }
 Ship >> skipTurn [
 	state := CantPlayANumberOfTurns skip: 1.
 	fuel := maxFuel.
