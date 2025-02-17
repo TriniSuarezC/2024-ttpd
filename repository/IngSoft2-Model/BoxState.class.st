@@ -6,6 +6,11 @@ Class {
 }
 
 { #category : 'as yet unclassified' }
+BoxState >> affectShip: aShip playingWith: aCollection with: aBoardSize in: aBox [ 
+	self subclassResponsibility.
+]
+
+{ #category : 'as yet unclassified' }
 BoxState >> changeState [
 	self subclassResponsibility.
 ]

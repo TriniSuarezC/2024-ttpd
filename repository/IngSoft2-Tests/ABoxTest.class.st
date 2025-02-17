@@ -29,3 +29,28 @@ ABoxTest >> test_05_WhenABoxIsAskedToChangeItsStateThenTheStateIsChanged [
 	aBox stateAlteration.
 	self assert: (aBox state isKindOf: NormalBox).
 ]
+
+{ #category : 'tests' }
+ABoxTest >> test_06_WhenABoxNeedsToAffectAShipThenItIsDoneNoMatterTheState [
+
+	| aBox aShip aCollectionOdShips |
+	aBox := NoEffectBox inPlace: 1.
+	aShip := Ship createWithMaxFuel: 1000.
+	aCollectionOdShips := OrderedCollection new.
+	aCollectionOdShips add: aShip.
+	aBox
+		shipsPlaying: aCollectionOdShips
+		withShip: aShip
+		withBoardSize: 1.
+	self assert: aShip getPosition equals: 1.
+	self assert: aShip getFuel equals: 1000.
+	self assert: aShip getLaps equals: 1.
+	aBox stateAlteration.
+	aBox
+		shipsPlaying: aCollectionOdShips
+		withShip: aShip
+		withBoardSize: 1.
+	self assert: aShip getPosition equals: 1.
+	self assert: aShip getFuel equals: 1000.
+	self assert: aShip getLaps equals: 1
+]

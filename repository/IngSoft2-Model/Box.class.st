@@ -22,7 +22,7 @@ Box >> addParsecsList: aParsecList withBoardLenght: aBoardLength andParsecLength
 
 { #category : 'as yet unclassified' }
 Box >> effectShips: aCollectionOfShips playing: aShip withBoardSize: aBoardSize [
-	^true
+	self subclassResponsibility.
 ]
 
 { #category : 'as yet unclassified' }
@@ -43,9 +43,19 @@ Box >> numberOfBoxesToMove: aNumberOfBoxesToMove [
 	Error signal: 'This is not an MoonWalkBox.'
 ]
 
+{ #category : 'as yet unclassified' }
+Box >> reversalEffectShips: aCollection playing: aShip withBoardSize: aBoardSize [
+	self subclassResponsibility.
+]
+
 { #category : 'testing' }
 Box >> setNumber: aDieResult [ 
 	Error signal: 'This is not an HyperGravityBox.'
+]
+
+{ #category : 'as yet unclassified' }
+Box >> shipsPlaying: aCollection withShip: aShip withBoardSize: aBoardSize [ 
+	state affectShip: aShip playingWith: aCollection with: aBoardSize in: self.
 ]
 
 { #category : 'accessing' }
