@@ -17,22 +17,23 @@ WormHoleBox class >> inPlace: aPosition [
 WormHoleBox >> effectShips: aCollection playing: aShip withBoardSize: aBoardSize [
 
 	| positionToMove |
-	positionToMove:= (destiny getPosition ) - place.
-	
+	positionToMove := destiny getPosition - place.
+
 	aShip moves: positionToMove.
-	aShip  consumeFuel: (positionToMove abs).
-	 
+	aShip consumeFuel: positionToMove abs
 ]
 
 { #category : 'as yet unclassified' }
 WormHoleBox >> getDestiny [
-	^ destiny .
+
+	^ destiny
 ]
 
 { #category : 'initialization' }
 WormHoleBox >> initializeInPlace: aPosition [
+
 	place := aPosition.
-	state := NormalBox new.
+	state := NormalBox new
 ]
 
 { #category : 'as yet unclassified' }
@@ -43,24 +44,29 @@ WormHoleBox >> reversalEffectShips: aCollection playing: aShip withBoardSize: aB
 	destinationPlace > place
 		ifTrue: [
 			positionsToMove := place + (aBoardSize - destinationPlace).
-			aShip moveToEndWormHole: positionsToMove]
+			aShip moveToEndWormHole: positionsToMove ]
 		ifFalse: [
 			positionsToMove := destinationPlace + (aBoardSize - place).
-			aShip moveToStartingWormHole: destinationPlace andFuel: positionsToMove]
+			aShip
+				moveToStartingWormHole: destinationPlace
+				andFuel: positionsToMove ]
 ]
 
 { #category : 'as yet unclassified' }
 WormHoleBox >> stateAlteration [
+
 	state := state changeState.
-	destiny stateChange.
+	destiny stateChange
 ]
 
 { #category : 'as yet unclassified' }
 WormHoleBox >> stateChange [
-	state := state changeState.
+
+	state := state changeState
 ]
 
 { #category : 'as yet unclassified' }
-WormHoleBox >> withDestiny: aWormHoleBox [ 
-	destiny:= aWormHoleBox.
+WormHoleBox >> withDestiny: aWormHoleBox [
+
+	destiny := aWormHoleBox
 ]

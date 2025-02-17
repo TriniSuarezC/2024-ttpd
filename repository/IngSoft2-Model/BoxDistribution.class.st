@@ -16,12 +16,14 @@ BoxDistribution class >> of: aBoxType withDistribution: aDistribution [
 
 { #category : 'as yet unclassified' }
 BoxDistribution >> getDistribution [
-	^distribution .
+
+	^ distribution
 ]
 
 { #category : 'as yet unclassified' }
 BoxDistribution >> getEffect [
-	^effect .
+
+	^ effect
 ]
 
 { #category : 'as yet unclassified' }

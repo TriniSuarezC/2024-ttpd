@@ -6,16 +6,16 @@ Class {
 }
 
 { #category : 'as yet unclassified' }
-AccelerationCard >> affectTo: aShip from: aShip2 playing: aBoardGame [ 
+AccelerationCard >> affectTo: aShip from: aShip2 playing: aBoardGame [
+
 	| shipsPlaying |
 	shipsPlaying := aBoardGame getShipsPlaying.
-	shipsPlaying do: [ :ship | ship addActiveCards: AccelerationCard new. ].
-	^AccelerationCard new.
-	
-	
+	shipsPlaying do: [ :ship | ship addActiveCards: AccelerationCard new ].
+	^ AccelerationCard new
 ]
 
 { #category : 'as yet unclassified' }
-AccelerationCard >> powerMove [ 
-^1.
+AccelerationCard >> powerMove [
+
+	^ 1
 ]

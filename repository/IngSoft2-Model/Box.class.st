@@ -16,25 +16,28 @@ Box class >> inPlace: aPlace [
 ]
 
 { #category : 'testing' }
-Box >> addParsecsList: aParsecList withBoardLenght: aBoardLength andParsecLength: aParsecLength [ 
+Box >> addParsecsList: aParsecList withBoardLenght: aBoardLength andParsecLength: aParsecLength [
+
 	Error signal: 'This is not an HyperJumpBox.'
 ]
 
 { #category : 'as yet unclassified' }
 Box >> effectShips: aCollectionOfShips playing: aShip withBoardSize: aBoardSize [
-	self subclassResponsibility.
+
+	self subclassResponsibility
 ]
 
 { #category : 'as yet unclassified' }
 Box >> getPosition [
-	^place.
+
+	^ place
 ]
 
 { #category : 'initialization' }
 Box >> initializeInPlace: aPlace [
+
 	place := aPlace.
-	state := NormalBox new.
-	
+	state := NormalBox new
 ]
 
 { #category : 'testing' }
@@ -45,25 +48,34 @@ Box >> numberOfBoxesToMove: aNumberOfBoxesToMove [
 
 { #category : 'as yet unclassified' }
 Box >> reversalEffectShips: aCollection playing: aShip withBoardSize: aBoardSize [
-	self subclassResponsibility.
+
+	self subclassResponsibility
 ]
 
 { #category : 'testing' }
-Box >> setNumber: aDieResult [ 
+Box >> setNumber: aDieResult [
+
 	Error signal: 'This is not an HyperGravityBox.'
 ]
 
 { #category : 'as yet unclassified' }
-Box >> shipsPlaying: aCollection withShip: aShip withBoardSize: aBoardSize [ 
-	state affectShip: aShip playingWith: aCollection with: aBoardSize in: self.
+Box >> shipsPlaying: aCollection withShip: aShip withBoardSize: aBoardSize [
+
+	state
+		affectShip: aShip
+		playingWith: aCollection
+		with: aBoardSize
+		in: self
 ]
 
 { #category : 'accessing' }
 Box >> state [
+
 	^ state
 ]
 
 { #category : 'as yet unclassified' }
 Box >> stateAlteration [
-	state := state changeState.
+
+	state := state changeState
 ]

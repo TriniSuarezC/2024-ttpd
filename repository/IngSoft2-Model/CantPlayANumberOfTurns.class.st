@@ -15,27 +15,34 @@ CantPlayANumberOfTurns class >> skip: aNumberOfTurns [
 
 { #category : 'as yet unclassified' }
 CantPlayANumberOfTurns >> checkPlay [
-	^false
+
+	^ false
 ]
 
 { #category : 'as yet unclassified' }
-CantPlayANumberOfTurns >> checkTurnState: aShip [ 
+CantPlayANumberOfTurns >> checkTurnState: aShip [
+
 	self updateTurns.
-	turns = 0 ifTrue: [ aShip changeStateToPlay. ^true].
-	^false.
+	turns = 0 ifTrue: [
+		aShip changeStateToPlay.
+		^ true ].
+	^ false
 ]
 
 { #category : 'as yet unclassified' }
 CantPlayANumberOfTurns >> getContTurns [
-	^turns.
+
+	^ turns
 ]
 
 { #category : 'initialization' }
-CantPlayANumberOfTurns >> initializeSkip: aNumberOfTurns [ 
-	turns := aNumberOfTurns + 1.
+CantPlayANumberOfTurns >> initializeSkip: aNumberOfTurns [
+
+	turns := aNumberOfTurns + 1
 ]
 
 { #category : 'as yet unclassified' }
 CantPlayANumberOfTurns >> updateTurns [
-	turns := turns -1.
+
+	turns := turns - 1
 ]

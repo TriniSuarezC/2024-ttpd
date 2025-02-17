@@ -6,11 +6,16 @@ Class {
 }
 
 { #category : 'as yet unclassified' }
-NormalBox >> affectShip: aShip playingWith: aCollection with: aBoardSize in: aBox [ 
-	aBox effectShips: aCollection playing: aShip  withBoardSize: aBoardSize.
+NormalBox >> affectShip: aShip playingWith: aCollection with: aBoardSize in: aBox [
+
+	aBox
+		effectShips: aCollection
+		playing: aShip
+		withBoardSize: aBoardSize
 ]
 
 { #category : 'as yet unclassified' }
 NormalBox >> changeState [
-	^ReversalBox new.
+
+	^ ReversalBox new
 ]

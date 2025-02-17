@@ -14,13 +14,13 @@ EffectManager class >> with: aBoxDistributionCollection [
 ]
 
 { #category : 'as yet unclassified' }
-EffectManager >> boxForRandomValue: randomValue cumulativeDistributions: cumulativeDistributions place: aPlace [ 
+EffectManager >> boxForRandomValue: randomValue cumulativeDistributions: cumulativeDistributions place: aPlace [
+
 	| selectedBox |
-        selectedBox := cumulativeDistributions detect: [:each |
-            randomValue <= (each at: 2).
-        ] ifNone: [cumulativeDistributions last].
-        ^((selectedBox at: 1) inPlace: aPlace)
-  
+	selectedBox := cumulativeDistributions
+		               detect: [ :each | randomValue <= (each at: 2) ]
+		               ifNone: [ cumulativeDistributions last ].
+	^ (selectedBox at: 1) inPlace: aPlace
 ]
 
 { #category : 'as yet unclassified' }
@@ -30,9 +30,9 @@ EffectManager >> calculateCumulativeDistributions [
 	cumulativeProbabilities := OrderedCollection new.
 	currentSum := 0.
 	boxesDistributions do: [ :each |
-		currentSum := currentSum + (each getDistribution).
+		currentSum := currentSum + each getDistribution.
 		cumulativeProbabilities add:
-			(Array with: (each getEffect) with: currentSum) ].
+			(Array with: each getEffect with: currentSum) ].
 	^ cumulativeProbabilities
 ]
 
@@ -67,6 +67,7 @@ EffectManager >> createFor: anAmountOfBoxes [
 ]
 
 { #category : 'as yet unclassified' }
-EffectManager >> initilizeWith: aBoxDistributionCollection [ 
-	boxesDistributions := aBoxDistributionCollection.
+EffectManager >> initilizeWith: aBoxDistributionCollection [
+
+	boxesDistributions := aBoxDistributionCollection
 ]

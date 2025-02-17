@@ -33,7 +33,8 @@ Board >> boxes [
 
 { #category : 'as yet unclassified' }
 Board >> checkAfterEffects: aCollectionOfShips [
-	aCollectionOfShips do:[:aShip| self checkPositionOf: aShip.]
+
+	aCollectionOfShips do: [ :aShip | self checkPositionOf: aShip ]
 ]
 
 { #category : 'as yet unclassified' }
@@ -42,12 +43,12 @@ Board >> checkPositionOf: aShip [
 	| actualPosition |
 	actualPosition := aShip getPosition.
 
-	
+
 	actualPosition > boxes size ifTrue: [
 		actualPosition := actualPosition - boxes size.
 		aShip updateLaps ].
 
-	
+
 	actualPosition < 1 ifTrue: [
 		actualPosition := aShip getLaps >= 2
 			                  ifTrue: [ boxes size + actualPosition ]
@@ -62,9 +63,10 @@ Board >> getLastBox [
 ]
 
 { #category : 'initialization' }
-Board >> initializeWithBoxesArray: aBoxesArray [ 
+Board >> initializeWithBoxesArray: aBoxesArray [
+
 	boxes := aBoxesArray.
-	lastBoxPlayed := (aBoxesArray at: 1)
+	lastBoxPlayed := aBoxesArray at: 1
 ]
 
 { #category : 'accessing' }
@@ -79,7 +81,10 @@ Board >> players: aCollectionOfShips playerTurn: aPlayerTurn withDiceResult: aDi
 	aShip checkIfWin: laps.
 	aBox := boxes at: actualPosition.
 	aShip victory ifTrue: [ ^ self ].
-	aBox shipsPlaying: aCollectionOfShips withShip: aShip withBoardSize: (boxes size). 
+	aBox
+		shipsPlaying: aCollectionOfShips
+		withShip: aShip
+		withBoardSize: boxes size.
 	lastBoxPlayed := aBox.
 	self checkAfterEffects: aCollectionOfShips.
 	aShip checkIfWin: laps

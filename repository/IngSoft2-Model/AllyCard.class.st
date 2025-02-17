@@ -19,28 +19,34 @@ AllyCard class >> with: aShip [
 ]
 
 { #category : 'as yet unclassified' }
-AllyCard >> affectTo: aShipAlly from: aShip playing: aBoardGame [ 
-	|card1 card2|
+AllyCard >> affectTo: aShipAlly from: aShip playing: aBoardGame [
+
+	| card1 card2 |
 	card1 := AllyCard with: aShipAlly.
 	card2 := AllyCard with: aShip.
-	
+
 	aShipAlly addActiveCards: card2.
+	aShipAlly addAlly: aShip.
 	aShip addActiveCards: card1.
-	
-	^card1
+	aShip addAlly: aShipAlly.
+
+	^ card1
 ]
 
 { #category : 'as yet unclassified' }
 AllyCard >> getAlly [
-	^ally
+
+	^ ally
 ]
 
 { #category : 'initialization' }
 AllyCard >> initializeWith: aShip [
-	ally:=aShip.
+
+	ally := aShip
 ]
 
 { #category : 'as yet unclassified' }
 AllyCard >> powerMove [
-^0.
+
+	^ 0
 ]

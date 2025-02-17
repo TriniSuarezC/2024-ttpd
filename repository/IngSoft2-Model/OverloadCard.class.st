@@ -6,15 +6,16 @@ Class {
 }
 
 { #category : 'as yet unclassified' }
-OverloadCard >> affectTo: aShip from: aShip2 playing: aBoardGame [ 
+OverloadCard >> affectTo: aShip from: aShip2 playing: aBoardGame [
+
 	| newCard |
-	newCard:= OverloadCard new.
+	newCard := OverloadCard new.
 	aShip addActiveCards: newCard.
-	^newCard
-	
+	^ newCard
 ]
 
 { #category : 'as yet unclassified' }
 OverloadCard >> powerMove [
-	^-2.
+
+	^ -2
 ]

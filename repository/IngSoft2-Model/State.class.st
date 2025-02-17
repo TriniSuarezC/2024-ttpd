@@ -7,10 +7,12 @@ Class {
 
 { #category : 'as yet unclassified' }
 State >> checkPlay [
-	^false.
+
+	^ false
 ]
 
 { #category : 'as yet unclassified' }
-State >> checkTurnState: aShip [ 
-	^true.
+State >> checkTurnState: aShip [
+
+	^ true
 ]

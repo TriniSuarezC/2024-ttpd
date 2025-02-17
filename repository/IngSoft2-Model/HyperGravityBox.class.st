@@ -15,28 +15,36 @@ HyperGravityBox class >> inPlace: aPosition [
 
 { #category : 'as yet unclassified' }
 HyperGravityBox >> effectShips: aCollectionOfShips playing: aShip withBoardSize: aBoardSize [
-	aShip getLastDieResult = dieResult ifTrue: [ aShip endCursed ] ifFalse: [ aShip isCursed. ]
-	
+
+	aShip getLastDieResult = dieResult
+		ifTrue: [ aShip endCursed ]
+		ifFalse: [ aShip isCursed ]
 ]
 
 { #category : 'as yet unclassified' }
 HyperGravityBox >> getNumberOfDie [
-	^dieResult.
+
+	^ dieResult
 ]
 
 { #category : 'initialization' }
 HyperGravityBox >> initializeInPlace: aPosition [
+
 	place := aPosition.
 	dieResult := 3.
-	state := NormalBox new.
+	state := NormalBox new
 ]
 
 { #category : 'as yet unclassified' }
-HyperGravityBox >> reversalEffectShips: aCollection playing: aShip  withBoardSize: aBoardSize [
-	aShip getLastDieResult = dieResult ifTrue: [ aShip isCursed ] ifFalse: [ aShip endCursed. ]
+HyperGravityBox >> reversalEffectShips: aCollection playing: aShip withBoardSize: aBoardSize [
+
+	aShip getLastDieResult = dieResult
+		ifTrue: [ aShip isCursed ]
+		ifFalse: [ aShip endCursed ]
 ]
 
 { #category : 'initialization' }
-HyperGravityBox >> setNumber: aDieResult [ 
-	dieResult := aDieResult.
+HyperGravityBox >> setNumber: aDieResult [
+
+	dieResult := aDieResult
 ]

@@ -6,6 +6,7 @@ Class {
 }
 
 { #category : 'as yet unclassified' }
-ReversalCard >> affectTo: aBox from: aShip playing: aBoardGame [ 
-	aBox stateAlteration.
+ReversalCard >> affectTo: aBox from: aShip playing: aBoardGame [
+
+	aBox stateAlteration
 ]
