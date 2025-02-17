@@ -186,7 +186,6 @@ Ship >> increaseMaxFuel [
 
 { #category : 'as yet unclassified' }
 Ship >> intitializeWithMaxFuel: amountMaxFuel [ 
-	| aCard anotherCard |
 	position:= 1.
 	fuel:= amountMaxFuel.
 	maxFuel:= amountMaxFuel.
@@ -208,6 +207,24 @@ Ship >> isAffectedByTimeMachineCard [
 { #category : 'testing' }
 Ship >> isCursed [
 	state := Jail new.
+]
+
+{ #category : 'as yet unclassified' }
+Ship >> moveToEndWormHole: positionsToMove [
+
+	laps = 1
+		ifTrue: [ self runOutOfFuel ]
+		ifFalse: [
+			self moves: -1 * positionsToMove.
+			self consumeFuel: positionsToMove.
+			self decreaseLaps ]
+]
+
+{ #category : 'as yet unclassified' }
+Ship >> moveToStartingWormHole: destinationPlace andFuel: positionsToMove [
+	position := destinationPlace. 
+	self consumeFuel: positionsToMove.
+	self updateLaps
 ]
 
 { #category : 'as yet unclassified' }
@@ -249,6 +266,13 @@ Ship >> removeCardFromHand: aCard [
 	cardToRemove = nil ifFalse: [ aCollectionOfCards remove: cardToRemove.]
 ]
 
+{ #category : 'removing' }
+Ship >> removeRandomCard [
+	| aRandomCard |
+	aRandomCard := self selectRandomCard.
+	self removeCardFromHand: aRandomCard.
+]
+
 { #category : 'as yet unclassified' }
 Ship >> restartFuel [
 	fuel:= maxFuel .
@@ -264,6 +288,14 @@ Ship >> runOutOfFuel [
 { #category : 'as yet unclassified' }
 Ship >> selectCard: aCard [ 
 	^(aCollectionOfCards detect: [ :each |  each = aCard])
+]
+
+{ #category : 'as yet unclassified' }
+Ship >> selectRandomCard [
+	| cardsSize randomNumber |
+	cardsSize := (aCollectionOfCards size)-1.
+	randomNumber := ((1 to: cardsSize) atRandom).
+	^(aCollectionOfCards at: randomNumber)
 ]
 
 { #category : 'as yet unclassified' }

@@ -79,7 +79,7 @@ Board >> players: aCollectionOfShips playerTurn: aPlayerTurn withDiceResult: aDi
 	aShip checkIfWin: laps.
 	aBox := boxes at: actualPosition.
 	aShip victory ifTrue: [ ^ self ].
-	aBox effectShips: aCollectionOfShips playing: aShip.
+	aBox shipsPlaying: aCollectionOfShips withShip: aShip withBoardSize: (boxes size). 
 	lastBoxPlayed := aBox.
 	self checkAfterEffects: aCollectionOfShips.
 	aShip checkIfWin: laps

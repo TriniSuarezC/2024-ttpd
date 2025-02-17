@@ -67,7 +67,7 @@ AHyperJumpBoxTest >> testWhenAShipLandsInAHyperJumpBoxThenTheFuelIsUpdated_04 [
 	aCollectionOfShips add: aShip.
 	aShip moves: 2.
 	aShip consumeFuel: 2.
-	aHyperJump effectShips: aCollectionOfShips playing: aShip.
+	aHyperJump effectShips: aCollectionOfShips playing: aShip withBoardSize: 1 .
 	self assert: aShip getFuel equals: 928.
 ]
 
@@ -87,12 +87,13 @@ AHyperJumpBoxTest >> testWhenAShipLandsInAHyperJumpBoxThenThePositionIsUpdated_0
 		addParsecsList: aParsecsList
 		withBoardLenght: 100
 		andParsecLength: 10.
+	
 	aCollectionOfShips := OrderedCollection new.
 	aShip := Ship createWithMaxFuel: 1000.
 	aCollectionOfShips add: aShip.
 	aShip moves: 2.
 	aShip consumeFuel: 2.
-	aHyperJump effectShips: aCollectionOfShips playing: aShip.
+	aHyperJump effectShips: aCollectionOfShips playing: aShip withBoardSize: 1 .
 	self assert: aShip getPosition equals: 73
 ]
 
@@ -117,7 +118,7 @@ AHyperJumpBoxTest >> testWhenNumberOfParsecsIsBiggerThanBoardLengthThenFuelIsCos
 	aCollectionOfShips add: aShip.
 	aShip moves: 2.
 	aShip consumeFuel: 2.
-	aHyperJump effectShips: aCollectionOfShips playing: aShip.
+	aHyperJump effectShips: aCollectionOfShips playing: aShip withBoardSize: 1 .
 	self assert: aShip getFuel equals: 997
 ]
 
@@ -142,6 +143,32 @@ AHyperJumpBoxTest >> testWhenNumberOfParsecsIsBiggerThanBoardLengthThenPositions
 	aCollectionOfShips add: aShip.
 	aShip moves: 2.
 	aShip consumeFuel: 2.
-	aHyperJump effectShips: aCollectionOfShips playing: aShip.
+	aHyperJump effectShips: aCollectionOfShips playing: aShip withBoardSize: 1 .
 	self assert: aShip getPosition equals: 4
+]
+
+{ #category : 'tests' }
+AHyperJumpBoxTest >> test_09_WhenAHyperJumpBoxIsReversedThenShipMovesMParsecsBack [
+
+	| aHyperJump aParsecsList aCollectionOfShips aShip aParsec anotherParsec oneMoreParsec |
+	aParsecsList := OrderedCollection new.
+	aParsec := Parsec withValue: 5.
+	anotherParsec := Parsec withValue: 7.
+	oneMoreParsec := Parsec withValue: 2.
+	aParsecsList add: aParsec.
+	aParsecsList add: anotherParsec.
+	aParsecsList add: oneMoreParsec.
+	aHyperJump := HyperJumpBox inPlace: 3.
+	aHyperJump
+		addParsecsList: aParsecsList
+		withBoardLenght: 100
+		andParsecLength: 10.
+	aHyperJump stateAlteration.
+	aCollectionOfShips := OrderedCollection new.
+	aShip := Ship createWithMaxFuel: 1000.
+	aCollectionOfShips add: aShip.
+	aShip moves: 2.
+	aShip consumeFuel: 2.
+	aHyperJump reversalEffectShips: aCollectionOfShips playing: aShip withBoardSize: 1.
+	self assert: aShip getPosition equals: 1
 ]

@@ -23,7 +23,7 @@ HyperJumpBox >> addParsecsList: aParsecList withBoardLenght: aBoardLength andPar
 ]
 
 { #category : 'as yet unclassified' }
-HyperJumpBox >> effectShips: aCollection playing: aShip [
+HyperJumpBox >> effectShips: aCollection playing: aShip withBoardSize: aBoardSize [
 
 	| parsecs positionsToMove |
 	parsecs := (parsecList at: self parsecsToMove) convertToParsec.
@@ -54,6 +54,7 @@ HyperJumpBox >> initializeInPlace: aPlace [
 	parsecList add: (Parsec withValue: 2).
 	parsecLength := 100.
 	boardLength := 100.
+	state := NormalBox new.
 ]
 
 { #category : 'as yet unclassified' }
@@ -67,4 +68,20 @@ HyperJumpBox >> parsecsToMove [
 		                ifTrue: [ parsecNumber + 1 ]
 		                ifFalse: [ 1 ].
 	^parsecNumber
+]
+
+{ #category : 'as yet unclassified' }
+HyperJumpBox >> reversalEffectShips: aCollection playing: aShip withBoardSize: aBoardSize [
+
+	| parsecs positionsToMove |
+	parsecs := (parsecList at: self parsecsToMove) convertToParsec.
+	positionsToMove := parsecs * parsecBoxProp.
+	positionsToMove := positionsToMove > 0.5
+		                   ifTrue: [ positionsToMove ceiling ]
+		                   ifFalse: [ positionsToMove floor ].
+	positionsToMove > place
+		ifTrue: [ aShip runOutOfFuel ]
+		ifFalse: [
+			aShip moves: -1 * positionsToMove.
+			aShip consumeFuel: positionsToMove ]
 ]

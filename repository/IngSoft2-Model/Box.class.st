@@ -2,7 +2,8 @@ Class {
 	#name : 'Box',
 	#superclass : 'Object',
 	#instVars : [
-		'place'
+		'place',
+		'state'
 	],
 	#category : 'IngSoft2-Model',
 	#package : 'IngSoft2-Model'
@@ -20,8 +21,8 @@ Box >> addParsecsList: aParsecList withBoardLenght: aBoardLength andParsecLength
 ]
 
 { #category : 'as yet unclassified' }
-Box >> effectShips: aCollectionOfShips playing: aShip [ 
-	^true
+Box >> effectShips: aCollectionOfShips playing: aShip withBoardSize: aBoardSize [
+	self subclassResponsibility.
 ]
 
 { #category : 'as yet unclassified' }
@@ -32,6 +33,7 @@ Box >> getPosition [
 { #category : 'initialization' }
 Box >> initializeInPlace: aPlace [
 	place := aPlace.
+	state := NormalBox new.
 	
 ]
 
@@ -41,7 +43,27 @@ Box >> numberOfBoxesToMove: aNumberOfBoxesToMove [
 	Error signal: 'This is not an MoonWalkBox.'
 ]
 
+{ #category : 'as yet unclassified' }
+Box >> reversalEffectShips: aCollection playing: aShip withBoardSize: aBoardSize [
+	self subclassResponsibility.
+]
+
 { #category : 'testing' }
 Box >> setNumber: aDieResult [ 
 	Error signal: 'This is not an HyperGravityBox.'
+]
+
+{ #category : 'as yet unclassified' }
+Box >> shipsPlaying: aCollection withShip: aShip withBoardSize: aBoardSize [ 
+	state affectShip: aShip playingWith: aCollection with: aBoardSize in: self.
+]
+
+{ #category : 'accessing' }
+Box >> state [
+	^ state
+]
+
+{ #category : 'as yet unclassified' }
+Box >> stateAlteration [
+	state := state changeState.
 ]

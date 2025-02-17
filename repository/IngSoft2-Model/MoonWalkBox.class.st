@@ -9,7 +9,7 @@ Class {
 }
 
 { #category : 'as yet unclassified' }
-MoonWalkBox >> effectShips: aCollectionOfShips playing: aShip [ 
+MoonWalkBox >> effectShips: aCollectionOfShips playing: aShip withBoardSize: aBoardSize [
 	| index |
 	index := aCollectionOfShips indexOf: aShip.
 	1 to: aCollectionOfShips size do: [ :i | (i = index) ifFalse:
@@ -26,9 +26,21 @@ MoonWalkBox >> getnumberOfBoxesToMove [
 MoonWalkBox >> initializeInPlace: aPlace [
 	place := aPlace.
 	numberOfBoxesToMove := (1 to: 100) atRandom.
+	state := NormalBox new.
 ]
 
 { #category : 'as yet unclassified' }
 MoonWalkBox >> numberOfBoxesToMove: aNumberOfBoxesToMove [ 
 	numberOfBoxesToMove := aNumberOfBoxesToMove.
+]
+
+{ #category : 'as yet unclassified' }
+MoonWalkBox >> reversalEffectShips: aCollectionOfShips playing: aShip withBoardSize: aBoardSize [
+
+	| index |
+	index := aCollectionOfShips indexOf: aShip.
+	1 to: aCollectionOfShips size do: [ :i |
+		i = index ifFalse: [
+			(aCollectionOfShips at: i) moves: numberOfBoxesToMove.
+			(aCollectionOfShips at: i) consumeFuel: numberOfBoxesToMove ] ]
 ]

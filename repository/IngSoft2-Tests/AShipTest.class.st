@@ -215,7 +215,7 @@ AShipTest >> test_25_WhenAShipEntersAWormHoleThenItMovesToDestiny [
 	anotherWormholeBox withDestiny: aWormholeBox.
 	aShip moves: 1.
 	aShip consumeFuel: 1.
-	aWormholeBox effectShips: aCollectionOfShips playing: aShip.
+	aWormholeBox effectShips: aCollectionOfShips playing: aShip withBoardSize: 1 .
 	self assert: aShip getPosition equals: 4.
 ]
 
@@ -232,7 +232,7 @@ AShipTest >> test_26_WhenAShipEntersAWormHoleThenItConsumesFuelToDestiny [
 	anotherWormholeBox withDestiny: aWormholeBox.
 	aShip moves: 1.
 	aShip consumeFuel: 1.
-	aWormholeBox effectShips: aCollectionOfShips playing: aShip.
+	aWormholeBox effectShips: aCollectionOfShips playing: aShip withBoardSize: 1 .
 	self assert: aShip getFuel equals: 997.
 ]
 
@@ -599,5 +599,37 @@ AShipTest >> test_51_WhenAShipGetsAnAllyThenTheAllyCanBeKnown [
 	self assert: aShip getAlly equals: anotherShip.
 	self assert: anotherShip getAlly equals: aShip.
 
+
+]
+
+{ #category : 'tests' }
+AShipTest >> test_52_WhenAShipIsAskedForARandomCardACardIsReturned [
+
+	| aShip aCard anotherCard|
+	aShip := Ship createWithMaxFuel: 1000.
+	aCard := PermanentCard new.
+	anotherCard := PermanentCard new.
+	aShip addCard: aCard.
+	aShip addCard: anotherCard.
+	aShip addActiveCards: aCard.
+	aShip addActiveCards: aCard.
+	
+	self assert: (aShip selectRandomCard isKindOf: PermanentCard ).
+
+]
+
+{ #category : 'tests' }
+AShipTest >> test_53_WhenAShipIsAskedForToRemoveARandomCardThenACardIsRemoved [
+
+	| aShip aCard anotherCard oneMoreCard|
+	aShip := Ship createWithMaxFuel: 1000.
+	aCard := Card new.
+	anotherCard := Card new.
+	oneMoreCard := Card new.
+	aShip addCard: aCard.
+	aShip addCard: anotherCard.
+	aShip addCard: oneMoreCard.
+	aShip removeRandomCard.
+	self assert: (aShip getCards size) equals: 2.
 
 ]
