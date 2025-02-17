@@ -25,7 +25,9 @@ AllyCard >> affectTo: aShipAlly from: aShip playing: aBoardGame [
 	card2 := AllyCard with: aShip.
 	
 	aShipAlly addActiveCards: card2.
+	aShipAlly addAlly: aShip.
 	aShip addActiveCards: card1.
+	aShip addAlly: aShipAlly.
 	
 	^card1
 ]

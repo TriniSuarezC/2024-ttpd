@@ -11,7 +11,8 @@ Class {
 		'aCollectionOfCards',
 		'aCollectionOfActiveCards',
 		'turnsPlayed',
-		'fuelHistory'
+		'fuelHistory',
+		'ally'
 	],
 	#category : 'IngSoft2-Model',
 	#package : 'IngSoft2-Model'
@@ -30,14 +31,14 @@ Ship >> > anotherShip [
 	^ self getLaps > anotherShip getLaps
 ]
 
-{ #category : 'as yet unclassified' }
-Ship >> MyFirstAlly [
-	aCollectionOfActiveCards do:[:aCard| aCard powerMove =0 ifTrue:[ ^(aCard getAlly)] ]
-]
-
 { #category : 'adding' }
 Ship >> addActiveCards: aCard [
 	aCollectionOfActiveCards add:aCard
+]
+
+{ #category : 'adding' }
+Ship >> addAlly: aAllyShip [
+	ally := aAllyShip.
 ]
 
 { #category : 'adding' }
@@ -63,8 +64,7 @@ Ship >> changeStateToPlay [
 
 { #category : 'as yet unclassified' }
 Ship >> checkAlly [
-	(aCollectionOfActiveCards isEmpty) ifTrue: [^false ].
-	aCollectionOfActiveCards do:[:aCard| ((aCard powerMove) = 0) ifTrue:  [^true]]
+	^ally notNil ifTrue: [ true ] ifFalse: [ false ].
 ]
 
 { #category : 'as yet unclassified' }
@@ -104,7 +104,7 @@ Ship >> consumeFuel: amount [
 Ship >> consumeFuelFromAlly: anAmount [
 	| anAlly anotherFuel |
 	anotherFuel:= anAmount *(-1).
-	anAlly:= self MyFirstAlly.
+	anAlly:= self getAlly .
 	((anAlly getFuel) -anotherFuel > 0) ifTrue: [ anAlly consumeFuel: anotherFuel. fuel:=0] ifFalse: [ 
 			self runOutOfFuel.
 			anAlly runOutOfFuel.
@@ -130,8 +130,7 @@ Ship >> getActiveCards [
 
 { #category : 'as yet unclassified' }
 Ship >> getAlly [
-	(aCollectionOfActiveCards isEmpty) ifTrue: [^false ].
-	aCollectionOfActiveCards do:[:aCard| ((aCard powerMove) = 0) ifTrue:  [^(aCard getAlly)]]
+	^ally
 ]
 
 { #category : 'as yet unclassified' }
