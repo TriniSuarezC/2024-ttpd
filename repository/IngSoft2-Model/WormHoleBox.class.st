@@ -36,14 +36,6 @@ WormHoleBox >> initializeInPlace: aPosition [
 ]
 
 { #category : 'as yet unclassified' }
-WormHoleBox >> reversalEffectShips: aCollection playing: aShip [
-	"Si caigo en 3 y está revertido aparezco en el casillero 10 de la vuelta anterior, si estoy en la primera vuelta vuelvo al principio."
-	| destinationPlace |
-	destinationPlace := destiny getPosition.
-
-]
-
-{ #category : 'as yet unclassified' }
 WormHoleBox >> reversalEffectShips: aCollection playing: aShip withBoardSize: aBoardSize [
 	"Si caigo en 3 y está revertido aparezco en el casillero 10 de la vuelta anterior, si estoy en la primera vuelta vuelvo al principio."
 	| destinationPlace |

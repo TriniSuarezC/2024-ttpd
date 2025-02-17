@@ -32,11 +32,6 @@ HyperGravityBox >> initializeInPlace: aPosition [
 ]
 
 { #category : 'as yet unclassified' }
-HyperGravityBox >> reversalEffectShips: aCollection playing: aShip [ 
-	aShip getLastDieResult = dieResult ifTrue: [ aShip isCursed ] ifFalse: [ aShip endCursed. ]
-]
-
-{ #category : 'as yet unclassified' }
 HyperGravityBox >> reversalEffectShips: aCollection playing: aShip  withBoardSize: aBoardSize [
 	aShip getLastDieResult = dieResult ifTrue: [ aShip isCursed ] ifFalse: [ aShip endCursed. ]
 ]

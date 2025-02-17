@@ -33,11 +33,6 @@ CardBox >> initializeInPlace: aPosition [
 ]
 
 { #category : 'as yet unclassified' }
-CardBox >> reversalEffectShips: aCollectionOfShips playing: aShip [
-	aShip removeRandomCard.
-]
-
-{ #category : 'as yet unclassified' }
 CardBox >> reversalEffectShips: aCollectionOfShips playing: aShip withBoardSize: aBoardSize [
 	aShip removeRandomCard.
 ]

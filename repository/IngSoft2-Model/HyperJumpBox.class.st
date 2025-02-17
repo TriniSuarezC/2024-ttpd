@@ -71,22 +71,6 @@ HyperJumpBox >> parsecsToMove [
 ]
 
 { #category : 'as yet unclassified' }
-HyperJumpBox >> reversalEffectShips: aCollection playing: aShip [
-
-	| parsecs positionsToMove |
-	parsecs := (parsecList at: self parsecsToMove) convertToParsec.
-	positionsToMove := parsecs * parsecBoxProp.
-	positionsToMove := positionsToMove > 0.5
-		                   ifTrue: [ positionsToMove ceiling ]
-		                   ifFalse: [ positionsToMove floor ].
-	positionsToMove > place
-		ifTrue: [ aShip runOutOfFuel ]
-		ifFalse: [
-			aShip moves: -1 * positionsToMove.
-			aShip consumeFuel: positionsToMove ]
-]
-
-{ #category : 'as yet unclassified' }
 HyperJumpBox >> reversalEffectShips: aCollection playing: aShip withBoardSize: aBoardSize [
 
 	| parsecs positionsToMove |

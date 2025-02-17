@@ -142,7 +142,7 @@ AMoonWalkBoxTest >> test_05_WhenAShipLandsOnAReversalMoonWalkBoxThenTheOtherShip
 	aShip consumeFuel: 10.
 	anotherShip moves: 20.
 	anotherShip consumeFuel: 20.
-	aMoonWalkBox reversalEffectShips: aCollectionOfShips playing: aShip.
+	aMoonWalkBox reversalEffectShips: aCollectionOfShips playing: aShip withBoardSize: 1.
 	self assert: (aMoonWalkBox state isKindOf: ReversalBox).
 	self assert: aShip getPosition equals: 11.
 	self assert: aShip getFuel equals: 990.	

@@ -137,7 +137,7 @@ AHyperGravityBoxTest >> test_09_WhenAShipThrowsTheCorrectNumberInTheRevertedHype
 	aHyperGravityBox stateAlteration.
 	aShip moves: 2.
 	aShip throwDice: aCollectionOfDice.
-	aHyperGravityBox reversalEffectShips: aCollectionOfShips  playing: aShip. 
+	aHyperGravityBox reversalEffectShips: aCollectionOfShips  playing: aShip withBoardSize: 1. 
 	self assert: (aShip getState isKindOf: Jail).
 
 ]
@@ -160,7 +160,7 @@ AHyperGravityBoxTest >> test_10_WhenAShipThrowsTheIncorrectNumberInTheRevertedHy
 	aShip moves: 2.
 	aShip consumeFuel: 2.
 	aShip throwDice: aCollectionOfDice.
-	aHyperGravityBox reversalEffectShips: aCollectionOfShips playing: aShip.
+	aHyperGravityBox reversalEffectShips: aCollectionOfShips playing: aShip withBoardSize: 1.
 	self assert: (aShip getState isKindOf: Playing).
 
 ]

@@ -50,7 +50,7 @@ ACardBoxTest >> test_03_WhenAShipLandsInACardBoxRevertedThenARandomCardIsDeleted
 	aCardBox stateAlteration.
 	aShip moves: 4.
 	aShip consumeFuel: 4.
-	aCardBox reversalEffectShips: aCollectionOfShips playing: aShip.
+	aCardBox reversalEffectShips: aCollectionOfShips playing: aShip withBoardSize: 1.
 	self assert: aShip getCards size equals: 1. 
 	
 	

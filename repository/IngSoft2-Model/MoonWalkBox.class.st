@@ -35,17 +35,6 @@ MoonWalkBox >> numberOfBoxesToMove: aNumberOfBoxesToMove [
 ]
 
 { #category : 'as yet unclassified' }
-MoonWalkBox >> reversalEffectShips: aCollectionOfShips playing: aShip [
-
-	| index |
-	index := aCollectionOfShips indexOf: aShip.
-	1 to: aCollectionOfShips size do: [ :i |
-		i = index ifFalse: [
-			(aCollectionOfShips at: i) moves: numberOfBoxesToMove.
-			(aCollectionOfShips at: i) consumeFuel: numberOfBoxesToMove ] ]
-]
-
-{ #category : 'as yet unclassified' }
 MoonWalkBox >> reversalEffectShips: aCollectionOfShips playing: aShip withBoardSize: aBoardSize [
 
 	| index |

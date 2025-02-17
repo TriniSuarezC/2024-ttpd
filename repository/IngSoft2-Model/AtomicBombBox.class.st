@@ -12,11 +12,6 @@ AtomicBombBox >> effectShips: aCollectionOfShips playing: aShip withBoardSize: a
 ]
 
 { #category : 'as yet unclassified' }
-AtomicBombBox >> reversalEffectShips: aCollection playing: aShip [ 
-	self effectShips: aCollection playing: aShip withBoardSize: 1 .
-]
-
-{ #category : 'as yet unclassified' }
 AtomicBombBox >> reversalEffectShips: aCollection playing: aShip withBoardSize: aBoardSize [
 	self effectShips: aCollection playing: aShip withBoardSize: 1 .
 ]

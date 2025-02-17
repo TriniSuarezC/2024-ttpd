@@ -169,6 +169,6 @@ AHyperJumpBoxTest >> test_09_WhenAHyperJumpBoxIsReversedThenShipMovesMParsecsBac
 	aCollectionOfShips add: aShip.
 	aShip moves: 2.
 	aShip consumeFuel: 2.
-	aHyperJump reversalEffectShips: aCollectionOfShips playing: aShip.
+	aHyperJump reversalEffectShips: aCollectionOfShips playing: aShip withBoardSize: 1.
 	self assert: aShip getPosition equals: 1
 ]
