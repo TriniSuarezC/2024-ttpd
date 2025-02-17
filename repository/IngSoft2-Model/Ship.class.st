@@ -210,6 +210,24 @@ Ship >> isCursed [
 ]
 
 { #category : 'as yet unclassified' }
+Ship >> moveToEndWormHole: positionsToMove [
+
+	laps = 1
+		ifTrue: [ self runOutOfFuel ]
+		ifFalse: [
+			self moves: -1 * positionsToMove.
+			self consumeFuel: positionsToMove.
+			self decreaseLaps ]
+]
+
+{ #category : 'as yet unclassified' }
+Ship >> moveToStartingWormHole: destinationPlace andFuel: positionsToMove [
+	position := destinationPlace. 
+	self consumeFuel: positionsToMove.
+	self updateLaps
+]
+
+{ #category : 'as yet unclassified' }
 Ship >> moves: aNumber [
 	| pos |
 	pos := 0.
