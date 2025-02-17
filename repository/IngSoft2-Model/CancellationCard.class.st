@@ -6,17 +6,17 @@ Class {
 }
 
 { #category : 'as yet unclassified' }
-CancellationCard >> affectTo: aCard from: aShip playing: aBoardGame [ 
+CancellationCard >> affectTo: aCard from: aShip playing: aBoardGame [
+
 	| shipsPlaying |
 	shipsPlaying := aBoardGame getShipsPlaying.
 	shipsPlaying do: [ :ship | ship removeActiveCard: aCard ].
-	^CancellationCard new.
-	
+	^ CancellationCard new
 ]
 
 { #category : 'removing' }
 CancellationCard >> removeCard: aCard from: activeCardsInGame toShips: collectionOfShips [
 
 	activeCardsInGame remove: aCard.
-	collectionOfShips do: [ :ship | ship removeActiveCard: aCard].
+	collectionOfShips do: [ :ship | ship removeActiveCard: aCard ]
 ]

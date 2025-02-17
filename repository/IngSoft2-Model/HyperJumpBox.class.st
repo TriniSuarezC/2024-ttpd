@@ -13,9 +13,10 @@ Class {
 }
 
 { #category : 'adding' }
-HyperJumpBox >> addParsecsList: aParsecList withBoardLenght: aBoardLength andParsecLength: aParsecLength [ 
+HyperJumpBox >> addParsecsList: aParsecList withBoardLenght: aBoardLength andParsecLength: aParsecLength [
+
 	parsecList := (aParsecList asSortedCollection: [ :a :b | a > b ])
-	              asOrderedCollection.
+		              asOrderedCollection.
 	boardLength := aBoardLength.
 	parsecLength := aParsecLength.
 	parsecBoxProp := aBoardLength / aParsecLength.
@@ -37,16 +38,19 @@ HyperJumpBox >> effectShips: aCollection playing: aShip withBoardSize: aBoardSiz
 
 { #category : 'as yet unclassified' }
 HyperJumpBox >> getParsecLenght [
-	^parsecLength.
+
+	^ parsecLength
 ]
 
 { #category : 'as yet unclassified' }
 HyperJumpBox >> getParsecList [
-	^parsecList 
+
+	^ parsecList
 ]
 
 { #category : 'as yet unclassified' }
 HyperJumpBox >> initializeInPlace: aPlace [
+
 	place := aPlace.
 	parsecList := OrderedCollection new.
 	parsecList add: (Parsec withValue: 7).
@@ -54,20 +58,22 @@ HyperJumpBox >> initializeInPlace: aPlace [
 	parsecList add: (Parsec withValue: 2).
 	parsecLength := 100.
 	boardLength := 100.
-	state := NormalBox new.
+	state := NormalBox new
 ]
 
 { #category : 'as yet unclassified' }
 HyperJumpBox >> parsecBoxProportion [
-	^parsecBoxProp .
+
+	^ parsecBoxProp
 ]
 
 { #category : 'as yet unclassified' }
 HyperJumpBox >> parsecsToMove [
+
 	parsecNumber := parsecNumber < parsecList size
 		                ifTrue: [ parsecNumber + 1 ]
 		                ifFalse: [ 1 ].
-	^parsecNumber
+	^ parsecNumber
 ]
 
 { #category : 'as yet unclassified' }

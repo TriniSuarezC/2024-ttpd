@@ -7,5 +7,6 @@ Class {
 
 { #category : 'as yet unclassified' }
 Playing >> checkPlay [
-	^false.
+
+	^ false
 ]

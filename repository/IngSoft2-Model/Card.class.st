@@ -7,15 +7,18 @@ Class {
 
 { #category : 'testing' }
 Card >> isInstant [
-	^false
+
+	^ false
 ]
 
 { #category : 'testing' }
 Card >> isPermanent [
-	^false
+
+	^ false
 ]
 
 { #category : 'testing' }
 Card >> isRedo [
-	^false
+
+	^ false
 ]

@@ -15,10 +15,12 @@ Jail class >> withExpectedDie: aDieResult [
 
 { #category : 'as yet unclassified' }
 Jail >> getExpectedDie [
-	^expectedResult.
+
+	^ expectedResult
 ]
 
 { #category : 'initialization' }
-Jail >> initializeWithExpectedDie: aDieResult [ 
-	expectedResult := aDieResult.
+Jail >> initializeWithExpectedDie: aDieResult [
+
+	expectedResult := aDieResult
 ]

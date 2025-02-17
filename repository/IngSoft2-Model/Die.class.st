@@ -17,13 +17,15 @@ Die class >> of: anAmountOfFaces [
 ]
 
 { #category : 'initialization' }
-Die >> initializeOf: anAmountOfFaces [ 
-	faces:= anAmountOfFaces.
+Die >> initializeOf: anAmountOfFaces [
+
+	faces := anAmountOfFaces
 ]
 
 { #category : 'accessing' }
 Die >> maximumValue [
-	^faces.
+
+	^ faces
 ]
 
 { #category : 'as yet unclassified' }

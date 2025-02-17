@@ -25,13 +25,15 @@ WormHoleBox >> effectShips: aCollection playing: aShip withBoardSize: aBoardSize
 
 { #category : 'as yet unclassified' }
 WormHoleBox >> getDestiny [
-	^ destiny .
+
+	^ destiny
 ]
 
 { #category : 'initialization' }
 WormHoleBox >> initializeInPlace: aPosition [
+
 	place := aPosition.
-	state := NormalBox new.
+	state := NormalBox new
 ]
 
 { #category : 'as yet unclassified' }
@@ -52,16 +54,19 @@ WormHoleBox >> reversalEffectShips: aCollection playing: aShip withBoardSize: aB
 
 { #category : 'as yet unclassified' }
 WormHoleBox >> stateAlteration [
+
 	state := state changeState.
-	destiny stateChange.
+	destiny stateChange
 ]
 
 { #category : 'as yet unclassified' }
 WormHoleBox >> stateChange [
-	state := state changeState.
+
+	state := state changeState
 ]
 
 { #category : 'as yet unclassified' }
-WormHoleBox >> withDestiny: aWormHoleBox [ 
-	destiny:= aWormHoleBox.
+WormHoleBox >> withDestiny: aWormHoleBox [
+
+	destiny := aWormHoleBox
 ]

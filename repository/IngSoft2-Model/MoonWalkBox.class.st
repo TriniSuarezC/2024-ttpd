@@ -21,19 +21,22 @@ MoonWalkBox >> effectShips: aCollectionOfShips playing: aShip withBoardSize: aBo
 
 { #category : 'as yet unclassified' }
 MoonWalkBox >> getnumberOfBoxesToMove [
-	^numberOfBoxesToMove.
+
+	^ numberOfBoxesToMove
 ]
 
 { #category : 'initialization' }
 MoonWalkBox >> initializeInPlace: aPlace [
+
 	place := aPlace.
 	numberOfBoxesToMove := (1 to: 100) atRandom.
-	state := NormalBox new.
+	state := NormalBox new
 ]
 
 { #category : 'as yet unclassified' }
-MoonWalkBox >> numberOfBoxesToMove: aNumberOfBoxesToMove [ 
-	numberOfBoxesToMove := aNumberOfBoxesToMove.
+MoonWalkBox >> numberOfBoxesToMove: aNumberOfBoxesToMove [
+
+	numberOfBoxesToMove := aNumberOfBoxesToMove
 ]
 
 { #category : 'as yet unclassified' }

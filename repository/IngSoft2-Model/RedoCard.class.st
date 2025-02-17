@@ -6,14 +6,16 @@ Class {
 }
 
 { #category : 'as yet unclassified' }
-RedoCard >> affectTo: aTarget from: aShip playing: aBoardGame [ 
+RedoCard >> affectTo: aTarget from: aShip playing: aBoardGame [
+
 	| aCard |
 	aCard := aBoardGame getLastCard.
 	aBoardGame playCard: aCard fromShip: aShip toTarget: aTarget.
-	^aCard.
+	^ aCard
 ]
 
 { #category : 'testing' }
 RedoCard >> isRedo [
-	^true
+
+	^ true
 ]

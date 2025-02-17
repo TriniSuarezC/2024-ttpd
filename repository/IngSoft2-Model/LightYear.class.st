@@ -7,5 +7,6 @@ Class {
 
 { #category : 'as yet unclassified' }
 LightYear >> convertToParsec [
-	^(value /3)
+
+	^ value / 3
 ]

@@ -6,6 +6,7 @@ Class {
 }
 
 { #category : 'testing' }
-InstantCard >> isInstant [ 
-	^true
+InstantCard >> isInstant [
+
+	^ true
 ]

@@ -7,10 +7,12 @@ Class {
 
 { #category : 'as yet unclassified' }
 NoEffectBox >> effectShips: aCollectionOfShips playing: aShip withBoardSize: aBoardSize [
-	^true
+
+	^ true
 ]
 
 { #category : 'as yet unclassified' }
 NoEffectBox >> reversalEffectShips: aCollection playing: aShip withBoardSize: aBoardSize [
-	^true
+
+	^ true
 ]

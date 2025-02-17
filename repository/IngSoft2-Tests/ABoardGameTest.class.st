@@ -6,8 +6,13 @@ Class {
 }
 
 { #category : 'asserting' }
-ABoardGameTest >> should: anErrorBlock raise: anErrorClass withMessage: aMessage [ 
-	self should: anErrorBlock raise: anErrorClass withExceptionDo: [ :error | self assert: error messageText equals: aMessage ] 
+ABoardGameTest >> should: anErrorBlock raise: anErrorClass withMessage: aMessage [
+
+	self
+		should: anErrorBlock
+		raise: anErrorClass
+		withExceptionDo: [ :error |
+		self assert: error messageText equals: aMessage ]
 ]
 
 { #category : 'tests' }
@@ -873,13 +878,13 @@ ABoardGameTest >> test_35_WhenATimeMachineCardIsPlayedAfterTwoTurnsHavePassedThe
 	aShip := (aBoardGame getShipsPlaying at: 1).
 	aShip addCard: aTimeMachineCard.
 	anotherShip := (aBoardGame getShipsPlaying at: 2).
-	aBoardGame playTurn. "juega la ship 1" 
-	aBoardGame playTurn. "juega la ship 2"
+	aBoardGame playTurn. 
+	aBoardGame playTurn. 
 	checkFuel := anotherShip getFuel.
-	aBoardGame playTurn. "juega la ship 1"
-	aBoardGame playTurn. "juega la ship 2"
-	aBoardGame playTurn.	"juega la ship 1"
-	aBoardGame playTurn. "juega la ship 2"
+	aBoardGame playTurn. 
+	aBoardGame playTurn. 
+	aBoardGame playTurn.	
+	aBoardGame playTurn. 
 	aBoardGame playCard: aTimeMachineCard fromShip: aShip toTarget: anotherShip.
 	self assert: anotherShip getFuel equals: checkFuel.
 ]
