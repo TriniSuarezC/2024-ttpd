@@ -26,7 +26,7 @@ AHyperGravityBoxTest >> test_03_WhenAShipLandsInAHyperGravityBoxThenItsStateChan
 	aHyperGravityBox := HyperGravityBox inPlace: 3.
 	aHyperGravityBox setNumber: 5.
 	aShip moves: 3.
-	aHyperGravityBox effectShips: aCollectionOfShips  playing: aShip. 
+	aHyperGravityBox effectShips: aCollectionOfShips  playing: aShip withBoardSize: 1 . 
 	self assert: (aShip getState isKindOf: Jail).
 
 ]
@@ -47,7 +47,7 @@ AHyperGravityBoxTest >> test_04_WhenAShipThrowsTheCorrectNumberInTheHyperGravity
 	aHyperGravityBox setNumber: 5.
 	aShip moves: 2.
 	aShip throwDice: aCollectionOfDice.
-	aHyperGravityBox effectShips: aCollectionOfShips  playing: aShip. 
+	aHyperGravityBox effectShips: aCollectionOfShips  playing: aShip withBoardSize: 1 . 
 	self assert: (aShip getState isKindOf: Playing).
 
 ]
@@ -68,7 +68,7 @@ AHyperGravityBoxTest >> test_05_WhenAShipThrowsTheCorrectNumberInTheHyperGravity
 	aHyperGravityBox setNumber: 5.
 	aShip moves: 2.
 	aShip throwDice: aCollectionOfDice.
-	aHyperGravityBox effectShips: aCollectionOfShips  playing: aShip. 
+	aHyperGravityBox effectShips: aCollectionOfShips  playing: aShip withBoardSize: 1 . 
 	self assert: aShip getPosition equals: 8.
 
 ]
@@ -90,7 +90,7 @@ AHyperGravityBoxTest >> test_06_WhenAShipThrowsTheCorrectNumberInTheHyperGravity
 	aShip moves: 2.
 	aShip consumeFuel: 2.
 	aShip throwDice: aCollectionOfDice.
-	aHyperGravityBox effectShips: aCollectionOfShips  playing: aShip. 
+	aHyperGravityBox effectShips: aCollectionOfShips  playing: aShip withBoardSize: 1 . 
 	self assert: aShip getFuel equals: 993.
 
 ]
@@ -112,10 +112,10 @@ AHyperGravityBoxTest >> test_08_WhenAShipThrowsAFirstTimeTheIncorrectNumberButAS
 	aShip moves: 2.
 	aShip consumeFuel: 2.
 	aShip throwDice: aCollectionOfDice.
-	aHyperGravityBox effectShips: aCollectionOfShips playing: aShip.
+	aHyperGravityBox effectShips: aCollectionOfShips playing: aShip withBoardSize: 1 .
 	self assert: (aShip getState isKindOf: Jail).
 	aShip throwDice: aCollectionOfDice.
-	aHyperGravityBox effectShips: aCollectionOfShips playing: aShip.
+	aHyperGravityBox effectShips: aCollectionOfShips playing: aShip withBoardSize: 1 . 
 	self assert: (aShip getState isKindOf: Playing).
 	self assert: aShip getFuel equals: 993.
 ]

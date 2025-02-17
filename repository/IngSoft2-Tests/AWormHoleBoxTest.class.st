@@ -46,7 +46,7 @@ AWormHoleBoxTest >> test_07_WhenAShipLandsOnAWormHoleThenThePositionIsTheOneOnTh
 	aCollection := OrderedCollection new.
 	aCollection add: aShip.
 	aShip moves: 1.
-	aWormholeBox effectShips: aCollection playing: aShip.
+	aWormholeBox effectShips: aCollection playing: aShip withBoardSize: 1 .
 
 	self assert: (aShip getPosition) equals: 4.
 
@@ -65,7 +65,7 @@ AWormHoleBoxTest >> test_08_WhenAShipLandsOnTheOtherSideOfTheWormHoleThenThePosi
 	aCollection := OrderedCollection new.
 	aCollection add: aShip.
 	aShip moves: 9.
-	anotherWormholeBox effectShips: aCollection playing: aShip.
+	anotherWormholeBox effectShips: aCollection playing: aShip withBoardSize: 1 .
 
 	self assert: (aShip getPosition) equals: 2.
 

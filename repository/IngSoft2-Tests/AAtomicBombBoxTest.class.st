@@ -20,7 +20,7 @@ aShip moves: 24.
 aShip consumeFuel: 24.
 anotherShip moves: 10.
 anotherShip consumeFuel: 10.
-aAtomicBombBox  effectShips: aCollectionOfShips playing: aShip.
+aAtomicBombBox  effectShips: aCollectionOfShips playing: aShip withBoardSize: 1.
 self assert: aShip getPosition equals: 1.
 self assert: aShip getFuel  equals: 76.
 self assert: anotherShip  getPosition equals: 1.

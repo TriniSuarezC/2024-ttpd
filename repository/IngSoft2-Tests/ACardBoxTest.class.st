@@ -29,7 +29,7 @@ ACardBoxTest >> test_02_WhenAShipLandsInACardBoxThenACardIsAddedToItsCollectionO
 	aCardBox := CardBox inPlace: 5.
 	aShip moves: 4.
 	aShip consumeFuel: 4.
-	aCardBox effectShips: aCollectionOfShips playing: aShip.
+	aCardBox effectShips: aCollectionOfShips playing: aShip withBoardSize: 1 .
 	self assert: aShip getCards size equals: 1. 
 	
 	

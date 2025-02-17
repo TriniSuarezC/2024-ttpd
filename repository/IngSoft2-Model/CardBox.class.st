@@ -14,7 +14,7 @@ CardBox class >> inPlace: aPosition [
 ]
 
 { #category : 'as yet unclassified' }
-CardBox >> effectShips: aCollectionOfShips playing: aShip [
+CardBox >> effectShips: aCollectionOfShips playing: aShip withBoardSize: aBoardSize [
 	| aCard |
 	aCard := myCardManager createACard.
 	aShip addCard: aCard.
@@ -34,5 +34,10 @@ CardBox >> initializeInPlace: aPosition [
 
 { #category : 'as yet unclassified' }
 CardBox >> reversalEffectShips: aCollectionOfShips playing: aShip [
+	aShip removeRandomCard.
+]
+
+{ #category : 'as yet unclassified' }
+CardBox >> reversalEffectShips: aCollectionOfShips playing: aShip withBoardSize: aBoardSize [
 	aShip removeRandomCard.
 ]

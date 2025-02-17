@@ -67,7 +67,7 @@ AHyperJumpBoxTest >> testWhenAShipLandsInAHyperJumpBoxThenTheFuelIsUpdated_04 [
 	aCollectionOfShips add: aShip.
 	aShip moves: 2.
 	aShip consumeFuel: 2.
-	aHyperJump effectShips: aCollectionOfShips playing: aShip.
+	aHyperJump effectShips: aCollectionOfShips playing: aShip withBoardSize: 1 .
 	self assert: aShip getFuel equals: 928.
 ]
 
@@ -93,7 +93,7 @@ AHyperJumpBoxTest >> testWhenAShipLandsInAHyperJumpBoxThenThePositionIsUpdated_0
 	aCollectionOfShips add: aShip.
 	aShip moves: 2.
 	aShip consumeFuel: 2.
-	aHyperJump effectShips: aCollectionOfShips playing: aShip.
+	aHyperJump effectShips: aCollectionOfShips playing: aShip withBoardSize: 1 .
 	self assert: aShip getPosition equals: 73
 ]
 
@@ -118,7 +118,7 @@ AHyperJumpBoxTest >> testWhenNumberOfParsecsIsBiggerThanBoardLengthThenFuelIsCos
 	aCollectionOfShips add: aShip.
 	aShip moves: 2.
 	aShip consumeFuel: 2.
-	aHyperJump effectShips: aCollectionOfShips playing: aShip.
+	aHyperJump effectShips: aCollectionOfShips playing: aShip withBoardSize: 1 .
 	self assert: aShip getFuel equals: 997
 ]
 
@@ -143,7 +143,7 @@ AHyperJumpBoxTest >> testWhenNumberOfParsecsIsBiggerThanBoardLengthThenPositions
 	aCollectionOfShips add: aShip.
 	aShip moves: 2.
 	aShip consumeFuel: 2.
-	aHyperJump effectShips: aCollectionOfShips playing: aShip.
+	aHyperJump effectShips: aCollectionOfShips playing: aShip withBoardSize: 1 .
 	self assert: aShip getPosition equals: 4
 ]
 

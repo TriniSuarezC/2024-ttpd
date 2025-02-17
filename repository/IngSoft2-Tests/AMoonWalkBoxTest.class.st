@@ -57,7 +57,7 @@ AMoonWalkBoxTest >> testWhenAShipLandsInAMoonWalkBoxThenItsPositionDoesNotChange
 	aShip consumeFuel: 10.
 	anotherShip moves: 20.
 	anotherShip consumeFuel: 20.
-	aMoonWalkBox effectShips: aCollectionOfShips playing: aShip.
+	aMoonWalkBox effectShips: aCollectionOfShips playing: aShip withBoardSize: 1 .
 	self assert: aShip getPosition equals: 11.
 	self assert: aShip getFuel equals: 990.	
 	self assert: anotherShip getPosition equals: 16.
@@ -99,7 +99,7 @@ AMoonWalkBoxTest >> testWhenAShipLandsInAMoonWalkBoxThenTheOtherShipsMovesAndRun
 	aShip consumeFuel: 10.
 	anotherShip moves: 20.
 	anotherShip consumeFuel: 20.
-	aMoonWalkBox effectShips: aCollectionOfShips playing: aShip.
+	aMoonWalkBox effectShips: aCollectionOfShips playing: aShip withBoardSize: 1 .
 	self assert: aShip getPosition equals: 11.
 	self assert: aShip getFuel equals: 990.	
 	self assert: anotherShip getPosition equals: 1.

@@ -17,5 +17,5 @@ RepeatCard >> affectTo: aShip from: aShip2 playing: aBoardGame [
 
 { #category : 'as yet unclassified' }
 RepeatCard >> applyEffect: aBox toShip: aShip withShipsPlaying: aCollectionOfShips [
-	aBox effectShips: aCollectionOfShips playing: aShip.
+	aBox effectShips: aCollectionOfShips playing: aShip withBoardSize: 1 .
 ]

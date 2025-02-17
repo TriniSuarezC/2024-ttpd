@@ -215,7 +215,7 @@ AShipTest >> test_25_WhenAShipEntersAWormHoleThenItMovesToDestiny [
 	anotherWormholeBox withDestiny: aWormholeBox.
 	aShip moves: 1.
 	aShip consumeFuel: 1.
-	aWormholeBox effectShips: aCollectionOfShips playing: aShip.
+	aWormholeBox effectShips: aCollectionOfShips playing: aShip withBoardSize: 1 .
 	self assert: aShip getPosition equals: 4.
 ]
 
@@ -232,7 +232,7 @@ AShipTest >> test_26_WhenAShipEntersAWormHoleThenItConsumesFuelToDestiny [
 	anotherWormholeBox withDestiny: aWormholeBox.
 	aShip moves: 1.
 	aShip consumeFuel: 1.
-	aWormholeBox effectShips: aCollectionOfShips playing: aShip.
+	aWormholeBox effectShips: aCollectionOfShips playing: aShip withBoardSize: 1 .
 	self assert: aShip getFuel equals: 997.
 ]
 

@@ -17,7 +17,7 @@ ABlackHoleBoxTest >> testWhenAShipLandsInABlackHoleThenPositionAndFuelAreUpdated
 	aShip moves: 6.
 	aShip consumeFuel: 6.
 	aBlackHoleBox := BlackHoleBox inPlace: 7.
-	aBlackHoleBox effectShips: aCollectionOfShips playing: aShip.
+	aBlackHoleBox effectShips: aCollectionOfShips playing: aShip withBoardSize: 1 .
 	self assert: aShip getPosition equals: 3.
 	self assert: aShip getFuel equals: 990.
 ]
